@@ -1,0 +1,2620 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शोध-प्रबंध: हस्तिनापुर - विश्लेषणात्मक अध्ययन (10000+ Words)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #b38b46;
+            --dark-maroon: #800000;
+            --maroon: #8B0000;
+            --text-dark: #222;
+            --bg-cream: #fdfaf6;
+            --positive-green: #2e7d32;
+            --negative-red: #c62828;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Noto Serif Devanagari', Georgia, serif;
+            font-size: 13pt;
+            line-height: 1.9;
+            color: var(--text-dark);
+            background-color: #f5f5f5;
+            padding: 0;
+        }
+
+        .doc-wrapper {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20mm 18mm;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--dark-maroon), #a00000);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 22px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            background: linear-gradient(135deg, var(--primary-gold), #d4a84b);
+            transform: scale(1.1) rotate(360deg);
+        }
+        
+        .back-to-top.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Word Counter */
+        .word-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--dark-maroon);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 12pt;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* TOC Links */
+        .toc-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .toc-link:hover {
+            color: var(--dark-maroon);
+            padding-left: 15px;
+            background: rgba(179, 139, 70, 0.1);
+        }
+
+        /* Chapter Highlight on Target */
+        .chapter-section:target {
+            animation: highlightChapter 2s ease;
+        }
+        
+        @keyframes highlightChapter {
+            0% { background-color: rgba(179, 139, 70, 0.4); }
+            100% { background-color: transparent; }
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 768px) {
+            body { font-size: 11pt; line-height: 1.7; }
+            .doc-wrapper { padding: 15px; max-width: 100%; }
+            .cover-page { padding: 20px 15px; min-height: auto; }
+            .cover-content h1 { font-size: 18pt !important; }
+            .subtitle { font-size: 11pt !important; }
+            .chapter-title { font-size: 16pt !important; }
+            .section-head { font-size: 13pt !important; }
+            .subsection-head { font-size: 12pt !important; }
+            p { text-indent: 20px; font-size: 11pt; }
+            .shloka-box { width: 100%; padding: 15px; }
+            .shloka-text { font-size: 12pt !important; }
+            table { font-size: 9pt; display: block; overflow-x: auto; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .image-container img { height: 150px; }
+            .back-to-top { width: 45px; height: 45px; font-size: 18px; bottom: 20px; right: 20px; }
+            .word-counter { top: 10px; right: 10px; padding: 8px 15px; font-size: 10pt; }
+        }
+
+        @media screen and (max-width: 480px) {
+            body { font-size: 10pt; }
+            .cover-content h1 { font-size: 16pt !important; }
+            .chapter-title { font-size: 14pt !important; }
+            .section-head { font-size: 12pt !important; }
+            p { text-indent: 15px; font-size: 10pt; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* Print Styles */
+        @media print {
+            @page { size: A4; margin: 18mm 15mm; }
+            body { background: #fff; font-size: 11pt; }
+            .doc-wrapper { max-width: none; padding: 0; box-shadow: none; }
+            .no-print, .back-to-top, .word-counter { display: none !important; }
+            h1, h2, h3, h4 { page-break-after: avoid; }
+            p, ul, ol, table, .shloka-box, .info-box { page-break-inside: avoid; }
+            .page-break { page-break-before: always; }
+            .cover-page { height: 260mm; }
+            .image-container img { max-height: 200px; }
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', 'Noto Serif Devanagari', serif;
+        }
+
+        /* Cover Page */
+        .cover-page {
+            border: 8px double var(--primary-gold);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 95vh;
+            background: linear-gradient(135deg, #fff 0%, #fdfbf7 50%, #f5f0e5 100%);
+            position: relative;
+        }
+
+        .cover-page::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px solid var(--primary-gold);
+            pointer-events: none;
+        }
+
+        .cover-page::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50" y="50" font-size="80" fill="%23b38b4610" text-anchor="middle" dominant-baseline="middle">॥</text></svg>');
+            background-size: 100px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .cover-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .cover-content h1 {
+            font-size: 34pt;
+            color: var(--dark-maroon);
+            margin: 25px 0;
+            line-height: 1.3;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 17pt;
+            color: var(--primary-gold);
+            font-style: italic;
+            border-top: 3px solid var(--primary-gold);
+            border-bottom: 3px solid var(--primary-gold);
+            padding: 15px 30px;
+            margin: 25px auto;
+            display: inline-block;
+            background: rgba(255,255,255,0.8);
+        }
+
+        .cover-footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12pt;
+            z-index: 1;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Chapter Titles */
+        .chapter-title {
+            font-size: 28pt;
+            color: var(--dark-maroon);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 40px 0 35px;
+            padding-bottom: 20px;
+            border-bottom: 4px double var(--primary-gold);
+            position: relative;
+        }
+
+        .chapter-title::after {
+            content: "✦ ✧ ✦ ✧ ✦";
+            display: block;
+            font-size: 14pt;
+            color: var(--primary-gold);
+            margin-top: 15px;
+            letter-spacing: 15px;
+        }
+
+        .chapter-number {
+            display: block;
+            font-size: 14pt;
+            color: var(--primary-gold);
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* Section Headers */
+        .section-head {
+            font-size: 18pt;
+            color: #333;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding: 12px 20px;
+            border-left: 6px solid var(--primary-gold);
+            background: linear-gradient(to right, rgba(179, 139, 70, 0.15), transparent);
+            position: relative;
+        }
+
+        .section-head::before {
+            content: "§";
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20pt;
+            color: var(--primary-gold);
+        }
+
+        .subsection-head {
+            font-size: 15pt;
+            color: var(--dark-maroon);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px dotted var(--primary-gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .subsection-head::before {
+            content: "◆";
+            color: var(--primary-gold);
+        }
+
+        /* Paragraphs */
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+            text-indent: 40px;
+        }
+
+        p.no-indent {
+            text-indent: 0;
+        }
+
+        .drop-cap::first-letter {
+            font-size: 4.5em;
+            font-weight: bold;
+            color: var(--dark-maroon);
+            float: left;
+            line-height: 0.8;
+            padding-right: 12px;
+            padding-top: 8px;
+            font-family: 'Cinzel', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Highlights */
+        .highlight {
+            font-weight: bold;
+            color: var(--dark-maroon);
+        }
+
+        .gold-highlight {
+            background: linear-gradient(to bottom, transparent 60%, rgba(179, 139, 70, 0.3) 60%);
+            padding: 0 3px;
+        }
+
+        /* Shloka Box */
+        .shloka-box {
+            margin: 30px auto;
+            padding: 25px;
+            width: 90%;
+            background: linear-gradient(135deg, #fdfaf6 0%, #f5f0e8 100%);
+            border: 3px solid var(--primary-gold);
+            text-align: center;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .shloka-box::before {
+            content: "॥";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24pt;
+            color: var(--primary-gold);
+            background: #fff;
+            padding: 0 15px;
+        }
+
+        .shloka-text {
+            display: block;
+            font-size: 16pt;
+            font-weight: bold;
+            color: var(--dark-maroon);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .shloka-meaning {
+            display: block;
+            font-size: 12pt;
+            color: #555;
+            font-style: italic;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--primary-gold);
+        }
+
+        .shloka-source {
+            display: block;
+            font-size: 10pt;
+            color: #888;
+            margin-top: 8px;
+        }
+
+        /* Lists */
+        .academic-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 20px 0;
+        }
+
+        .academic-list li {
+            margin-bottom: 18px;
+            padding-left: 35px;
+            position: relative;
+            text-align: justify;
+        }
+
+        .academic-list li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: var(--primary-gold);
+            font-size: 12pt;
+        }
+
+        .numbered-list {
+            counter-reset: item;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .numbered-list li {
+            counter-increment: item;
+            margin-bottom: 18px;
+            padding-left: 45px;
+            position: relative;
+        }
+
+        .numbered-list li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--dark-maroon);
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            font-size: 12pt;
+        }
+
+        /* Tables */
+        .table-container {
+            margin: 25px 0;
+            overflow-x: auto;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11pt;
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--dark-maroon), #a00000);
+            color: #fff;
+            padding: 14px 12px;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #e0d5c5;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background-color: #faf8f5;
+        }
+
+        tr:hover {
+            background-color: rgba(179, 139, 70, 0.1);
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: #fff;
+            border-left: 6px solid var(--dark-maroon);
+            padding: 20px 25px;
+            margin: 25px 0;
+            background-color: #fafafa;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            color: var(--dark-maroon);
+            font-size: 16pt;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Positive Box */
+        .positive-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 22px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .positive-box::before {
+            content: "✓";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 80pt;
+            color: rgba(76, 175, 80, 0.1);
+        }
+
+        .positive-box-title {
+            color: var(--positive-green);
+            font-weight: bold;
+            font-size: 15pt;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .positive-box-title::before {
+            content: "✅";
+            font-size: 18pt;
+        }
+
+        /* Negative Box */
+        .negative-box {
+            background: linear-gradient(135deg, #ffebee, #ffcdd2);
+            border: 2px solid #f44336;
+            border-radius: 10px;
+            padding: 22px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .negative-box::before {
+            content: "✗";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 80pt;
+            color: rgba(244, 67, 54, 0.1);
+        }
+
+        .negative-box-title {
+            color: var(--negative-red);
+            font-weight: bold;
+            font-size: 15pt;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .negative-box-title::before {
+            content: "❌";
+            font-size: 18pt;
+        }
+
+        /* Key Points Box */
+        .key-points-box {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 22px;
+            margin: 25px 0;
+        }
+
+        .key-points-title {
+            color: #f57f17;
+            font-weight: bold;
+            font-size: 15pt;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .key-points-title::before {
+            content: "🔑";
+            font-size: 18pt;
+        }
+
+        /* Evidence Box */
+        .evidence-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border: 2px solid #2196f3;
+            border-radius: 10px;
+            padding: 22px;
+            margin: 25px 0;
+        }
+
+        .evidence-title {
+            color: #1565c0;
+            font-weight: bold;
+            font-size: 15pt;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .evidence-title::before {
+            content: "🔍";
+            font-size: 18pt;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, var(--dark-maroon), #a00000);
+            color: #fff;
+            padding: 20px 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            font-size: 28pt;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-number {
+            font-size: 22pt;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 10pt;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .comparison-positive {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .comparison-negative {
+            background: linear-gradient(135deg, #ffebee, #ffcdd2);
+            border: 2px solid #f44336;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .comparison-title {
+            font-weight: bold;
+            font-size: 14pt;
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+
+        .comparison-positive .comparison-title {
+            color: var(--positive-green);
+            border-color: var(--positive-green);
+        }
+
+        .comparison-negative .comparison-title {
+            color: var(--negative-red);
+            border-color: var(--negative-red);
+        }
+
+        /* Image Container */
+        .image-container {
+            margin: 30px 0;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .image-caption {
+            margin-top: 15px;
+            font-size: 11pt;
+            color: #666;
+            font-style: italic;
+            text-indent: 0;
+        }
+
+        .image-source {
+            font-size: 9pt;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        /* Image Placeholder */
+        .image-placeholder {
+            background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 3px dashed #bbb;
+            color: #888;
+        }
+
+        .image-placeholder-icon {
+            font-size: 50pt;
+            margin-bottom: 15px;
+        }
+
+        .image-placeholder-text {
+            font-size: 12pt;
+            text-align: center;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-gold), var(--dark-maroon), var(--primary-gold));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding: 18px 22px;
+            background: linear-gradient(135deg, #faf8f5, #fff);
+            border-radius: 10px;
+            border: 1px solid #e8dcc8;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -33px;
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            background: var(--dark-maroon);
+            border: 4px solid var(--primary-gold);
+            border-radius: 50%;
+        }
+
+        .timeline-period {
+            font-weight: bold;
+            color: var(--primary-gold);
+            font-size: 13pt;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            color: var(--dark-maroon);
+            font-size: 14pt;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            text-indent: 0;
+            margin: 0;
+            font-size: 11pt;
+            color: #555;
+        }
+
+        /* Highlight Bar */
+        .highlight-bar {
+            background: linear-gradient(135deg, var(--dark-maroon), #a00000);
+            color: #fff;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 14pt;
+            font-weight: 600;
+            line-height: 1.7;
+            box-shadow: 0 5px 20px rgba(139, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-bar::before {
+            content: "❝";
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 40pt;
+            opacity: 0.2;
+        }
+
+        .highlight-bar::after {
+            content: "❞";
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 40pt;
+            opacity: 0.2;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            border-left: 5px solid var(--primary-gold);
+            background: linear-gradient(to right, var(--bg-cream), #fff);
+            padding: 20px 25px;
+            margin: 25px 0;
+            font-style: italic;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: "❝";
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-size: 30pt;
+            color: var(--primary-gold);
+            opacity: 0.5;
+        }
+
+        .quote-text {
+            font-size: 13pt;
+            color: #444;
+            margin-bottom: 12px;
+            text-indent: 0;
+        }
+
+        .quote-author {
+            text-align: right;
+            color: var(--dark-maroon);
+            font-weight: bold;
+            font-size: 11pt;
+            text-indent: 0;
+        }
+
+        /* Achievement Badge */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .achievement-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary-gold), #d4a84b);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 11pt;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Page Break */
+        .page-break {
+            page-break-before: always;
+            break-before: page;
+        }
+
+        /* Reference Item */
+        .reference-item {
+            margin-bottom: 16px;
+            padding-left: 40px;
+            text-indent: -40px;
+            font-size: 11pt;
+            border-bottom: 1px dotted #ddd;
+            padding-bottom: 12px;
+        }
+
+        .reference-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: var(--dark-maroon);
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        /* Footer */
+        .chapter-footer {
+            margin-top: 60px;
+            padding-top: 25px;
+            border-top: 3px double var(--primary-gold);
+            text-align: center;
+        }
+
+        .ornamental-text {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 16pt;
+            letter-spacing: 5px;
+        }
+
+        /* Final Page */
+        .final-decoration {
+            text-align: center;
+            padding: 60px 30px;
+        }
+
+        .final-ornament {
+            font-size: 35pt;
+            color: var(--primary-gold);
+            letter-spacing: 20px;
+            margin: 30px 0;
+        }
+
+        .final-title {
+            font-family: 'Cinzel', serif;
+            font-size: 26pt;
+            color: var(--dark-maroon);
+            letter-spacing: 8px;
+            margin: 25px 0;
+        }
+
+        /* Navigation Button */
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--dark-maroon), #a00000);
+            color: #fff;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 12pt;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(135deg, var(--primary-gold), #d4a84b);
+            transform: translateY(-3px);
+        }
+
+        /* Divider */
+        .section-divider {
+            text-align: center;
+            margin: 40px 0;
+            color: var(--primary-gold);
+            font-size: 18pt;
+            letter-spacing: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Word Counter -->
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop" title="ऊपर जाएं">↑</button>
+
+<div class="doc-wrapper">
+
+    <!-- ==================== COVER PAGE ==================== -->
+    <div class="cover-page" id="cover">
+        <div style="text-align: center; z-index: 1;">
+            <div style="font-size: 14pt; letter-spacing: 5px; color: #666; text-transform: uppercase;">भारतीय इतिहास एवं पुरातत्व अनुसंधान</div>
+            <div style="font-size: 12pt; color: var(--primary-gold); margin-top: 8px; font-weight: bold;">Indian Historical & Archaeological Research</div>
+        </div>
+        
+        <div class="cover-content">
+            <div style="margin: 25px 0;">
+                <svg width="90" height="90" viewBox="0 0 100 100" style="display: inline-block;">
+                    <defs>
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#d4a84b"/>
+                            <stop offset="100%" style="stop-color:#b38b46"/>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" stroke="url(#goldGrad)" stroke-width="3" fill="none"/>
+                    <circle cx="50" cy="50" r="38" stroke="url(#goldGrad)" stroke-width="1" fill="none"/>
+                    <text x="50" y="58" font-size="35" fill="#800000" text-anchor="middle" font-family="Noto Serif Devanagari" font-weight="bold">हा</text>
+                </svg>
+            </div>
+            
+            <div style="font-size: 13pt; letter-spacing: 8px; color: var(--primary-gold); margin-bottom: 20px; text-transform: uppercase;">— शोध प्रबंध —</div>
+            
+            <h1>प्राचीन भारतीय इतिहास में<br>ऐतिहासिक स्थल हस्तिनापुर</h1>
+            
+            <div class="subtitle">एक विश्लेषणात्मक अध्ययन<br>Analytical Study</div>
+            
+            <p style="text-align: center; text-indent: 0; margin-top: 30px; font-style: italic; color: #555; font-size: 13pt;">
+                "सकारात्मक पक्ष, नकारात्मक पक्ष, संदर्भ ग्रंथ सूची एवं निष्कर्ष का समग्र विवेचन"
+            </p>
+            
+        </div>
+        
+        <div class="cover-footer">
+            <div>
+                <strong>शोधार्थी:</strong><br>
+                [DuDu]<br>
+                <span style="font-size: 10pt; color: #666;">प्राचीन इतिहास विभाग</span>
+            </div>
+            <div style="text-align: right;">
+                <strong>शैक्षणिक सत्र:</strong><br>
+                2025-2026<br>
+                <span style="font-size: 10pt; color: #666;">भारत</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TABLE OF CONTENTS ==================== -->
+    <div class="page-break"></div>
+    
+    <section id="toc" class="chapter-section">
+        <h1 class="chapter-title">
+            <span class="chapter-number">अनुक्रमणिका</span>
+            विषय-सूची
+        </h1>
+        
+        <p style="text-align: center; color: var(--primary-gold); font-style: italic; margin-bottom: 30px;">
+            📌 किसी भी अध्याय पर क्लिक करें और सीधे उस अध्याय पर पहुँचें
+        </p>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">क्रम</th>
+                        <th style="width: 65%;">अध्याय एवं विषय</th>
+                        <th style="width: 23%;">शब्द (अनुमानित)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center; font-weight: bold; font-size: 16pt; color: var(--positive-green);">I</td>
+                        <td>
+                            <a href="#chapter1" class="toc-link">
+                                <strong style="color: var(--positive-green);">✅ सकारात्मक पक्ष (Positive Aspects)</strong><br>
+                                <span style="font-size: 10pt; color: #666;">
+                                    साहित्य-पुरातत्व समन्वय | लौह क्रांति | राज्य-निर्माण | धार्मिक बहुलता | सामाजिक विकास | दार्शनिक विरासत | व्यापार | शिक्षा | कला-संस्कृति | प्रशासनिक व्यवस्था
+                                </span>
+                            </a>
+                        </td>
+                        <td style="text-align: center;"><strong>click here</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; font-weight: bold; font-size: 16pt; color: var(--negative-red);">II</td>
+                        <td>
+                            <a href="#chapter2" class="toc-link">
+                                <strong style="color: var(--negative-red);">❌ नकारात्मक पक्ष (Negative Aspects)</strong><br>
+                                <span style="font-size: 10pt; color: #666;">
+                                    साहित्यिक अतिशयोक्ति | पर्यावरणीय भेद्यता | लिपि का अभाव | नैतिक पतन | युद्ध की विनाशकारी लागत | उत्तराधिकार समस्या | सामाजिक विषमता | आर्थिक असंतुलन
+                                </span>
+                            </a>
+                        </td>
+                        <td style="text-align: center;"><strong>click here</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; font-weight: bold; font-size: 16pt; color: #1565c0;">III</td>
+                        <td>
+                            <a href="#chapter3" class="toc-link">
+                                <strong style="color: #1565c0;">📚 संदर्भ ग्रंथ सूची (Bibliography)</strong><br>
+                                <span style="font-size: 10pt; color: #666;">
+                                    प्राथमिक स्रोत | द्वितीयक स्रोत | पुरातात्विक रिपोर्ट | शोध पत्र | हिंदी ग्रंथ | अंग्रेजी ग्रंथ | ऑनलाइन संसाधन
+                                </span>
+                            </a>
+                        </td>
+                        <td style="text-align: center;"><strong>click here</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; font-weight: bold; font-size: 16pt; color: var(--primary-gold);">IV</td>
+                        <td>
+                            <a href="#chapter4" class="toc-link">
+                                <strong style="color: var(--dark-maroon);">🎯 निष्कर्ष (Conclusion)</strong><br>
+                                <span style="font-size: 10pt; color: #666;">
+                                    शोध सारांश | प्रमुख निष्कर्ष | आधुनिक प्रासंगिकता | भविष्य के सुझाव | अंतिम विचार
+                                </span>
+                            </a>
+                        </td>
+                        <td style="text-align: center;"><strong>click here</strong></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="stats-grid" style="margin-top: 40px;">
+            <div class="stat-box" style="background: linear-gradient(135deg, var(--positive-green), #1b5e20);">
+                <span class="stat-icon">✅</span>
+                <span class="stat-number">10+</span>
+                <span class="stat-label">सकारात्मक बिंदु</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, var(--negative-red), #b71c1c);">
+                <span class="stat-icon">❌</span>
+                <span class="stat-number">8+</span>
+                <span class="stat-label">नकारात्मक बिंदु</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #1565c0, #0d47a1);">
+                <span class="stat-icon">📚</span>
+                <span class="stat-number">50+</span>
+                <span class="stat-label">संदर्भ ग्रंथ</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, var(--primary-gold), #8d6e3f);">
+                <span class="stat-icon">🎯</span>
+                <span class="stat-number">15+</span>
+                <span class="stat-label">निष्कर्ष बिंदु</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CHAPTER I: POSITIVE ASPECTS ==================== -->
+    <div class="page-break"></div>
+
+    <section id="chapter1" class="chapter-section">
+        <h1 class="chapter-title">
+            <span class="chapter-number">अध्याय I</span>
+            हस्तिनापुर के सकारात्मक पक्ष
+        </h1>
+        <h3 style="text-align: center; color: var(--positive-green); font-size: 15pt; margin-bottom: 35px;">
+            ✅ Positive Aspects of Hastinapura - A Comprehensive Analysis
+        </h3>
+
+        <!-- Introduction -->
+        <p class="drop-cap">प्राचीन भारतीय इतिहास के विशाल कैनवास पर हस्तिनापुर का नाम स्वर्णाक्षरों में अंकित है। यह केवल एक भौगोलिक स्थल नहीं, अपितु भारतीय सभ्यता की स्मृति में एक जीवंत प्रतीक है। आधुनिक उत्तर प्रदेश के मेरठ जनपद में गंगा नदी के तट पर स्थित यह प्राचीन नगर, भारतीय जनमानस में महाभारत के कुरु-पांडव संघर्ष की पृष्ठभूमि के रूप में चिरस्थायी है। हस्तिनापुर ने न केवल आर्यों की राजनीतिक चेतना को दिशा दी, बल्कि भारत में सभ्यता के भौतिक आधारों को भी सुदृढ़ किया। साहित्यिक और पुरातात्विक दोनों दृष्टिकोणों से इस नगर का अध्ययन करने पर अनेक सकारात्मक पक्ष उभरकर सामने आते हैं, जिनका विस्तृत विश्लेषण इस अध्याय में प्रस्तुत है।</p>
+
+        <p>हस्तिनापुर का महत्व इस तथ्य में निहित है कि यह उस संक्रमणकालीन युग का प्रतिनिधित्व करता है जब भारतीय समाज वैदिक युग से उत्तर-वैदिक युग में प्रवेश कर रहा था। यह वह काल था जब ऋग्वैदिक कबीलाई व्यवस्था (Tribal System) क्षेत्रीय राज्य-व्यवस्था (Territorial State System) में रूपांतरित हो रही थी। कृषि उत्पादन में वृद्धि, लौह प्रौद्योगिकी का विकास, व्यापार का विस्तार, और नगरीकरण की प्रक्रिया—ये सभी परिवर्तन हस्तिनापुर जैसे केंद्रों में स्पष्ट रूप से दृष्टिगोचर होते हैं।</p>
+
+        <!-- Image 1 -->
+        <div class="image-container">
+            <div class="image-placeholder">
+                <span class="image-placeholder-icon">🏛️</span>
+                <span class="image-placeholder-text">हस्तिनापुर उत्खनन स्थल का दृश्य<br>Archaeological Site of Hastinapura</span>
+            </div>
+            <p class="image-caption"><strong>चित्र 1.1:</strong> हस्तिनापुर का पुरातात्विक उत्खनन स्थल (1950-52), जहाँ से PGW संस्कृति के महत्वपूर्ण साक्ष्य प्राप्त हुए।</p>
+            <p class="image-source">स्रोत: Archaeological Survey of India Archives</p>
+        </div>
+
+        <!-- Positive Point 1 -->
+        <h3 class="section-head">१.१ साहित्य और पुरातत्व का ऐतिहासिक समन्वय</h3>
+
+        <div class="positive-box">
+            <div class="positive-box-title">प्रथम सकारात्मक पक्ष: ग्रंथ और फावड़े का मिलन</div>
+            <p class="no-indent">हस्तिनापुर भारतीय इतिहास के उन अत्यंत दुर्लभ उदाहरणों में से एक है जहाँ <strong>"ग्रंथ" और "फावड़ा" (Book and Spade)</strong> एक साथ सत्य की गवाही देते हैं। यह समन्वय भारतीय ऐतिहासिक परंपरा की विश्वसनीयता को वैश्विक अकादमिक जगत में पुनर्स्थापित करता है।</p>
+        </div>
+
+        <p>प्रोफेसर बी.बी. लाल (Prof. B.B. Lal) के नेतृत्व में भारतीय पुरातत्व सर्वेक्षण (Archaeological Survey of India) द्वारा 1950-52 में किए गए वृहद स्तरीय उत्खनन ने यह सिद्ध किया कि महाभारत के साहित्यिक वर्णन केवल कल्पना नहीं थे। पुरातात्विक स्तरों (Archaeological Strata) में प्राप्त गाद (Silt) की मोटी परतें स्पष्ट करती हैं कि ईसा पूर्व 8वीं शताब्दी के आसपास गंगा की एक भयंकर बाढ़ ने इस नगर को आंशिक रूप से नष्ट कर दिया था।</p>
+
+        <p>यह वैज्ञानिक साक्ष्य मत्स्य पुराण के उस प्रसिद्ध श्लोक की पुष्टि करता है जहाँ राजा निचक्षु द्वारा राजधानी कौशाम्बी ले जाने का वर्णन है:</p>
+
+        <div class="shloka-box">
+            <span class="shloka-text">"निचक्षोर्गङ्गया नष्टं हास्तिनापुरमाहवे।<br>कौशाम्ब्यां वत्सभूमौ च राज्यं चक्रे स धार्मिकः।।"</span>
+            <span class="shloka-meaning">(निचक्षु के समय गंगा द्वारा हस्तिनापुर नष्ट हो गया। उस धार्मिक राजा ने वत्स भूमि में कौशाम्बी को राजधानी बनाया।)</span>
+            <span class="shloka-source">— मत्स्य पुराण, 50.48</span>
+        </div>
+
+        <p>इस समन्वय का महत्व अपार है क्योंकि यह सिद्ध करता है कि प्राचीन भारतीय साहित्य को पूर्णतः मिथक मानना उचित नहीं है—उसमें ठोस ऐतिहासिक तत्व भी विद्यमान हैं। भारतीय इतिहास-पुराण परंपरा (Itihasa-Purana Tradition) की विश्वसनीयता को इससे बल मिलता है। पाश्चात्य विद्वानों ने लंबे समय तक भारतीय प्राचीन साहित्य को केवल 'मिथक' कहकर खारिज किया था, किंतु हस्तिनापुर के पुरातात्विक साक्ष्यों ने इस धारणा को चुनौती दी।</p>
+
+        <div class="key-points-box">
+            <div class="key-points-title">इस समन्वय के प्रमुख परिणाम</div>
+            <ul class="academic-list">
+                <li><span class="highlight">ऐतिहासिकता की पुष्टि:</span> पुराणों में वर्णित बाढ़ की घटना पुरातात्विक साक्ष्यों (एक मीटर मोटी गाद की परत) से प्रमाणित हुई।</li>
+                <li><span class="highlight">मौखिक परंपरा का मान:</span> सदियों तक मौखिक रूप से संरक्षित इतिहास की विश्वसनीयता स्थापित हुई।</li>
+                <li><span class="highlight">शोध पद्धति का विकास:</span> भारतीय इतिहास-लेखन को नई दिशा मिली—साहित्य और पुरातत्व के समन्वित अध्ययन की।</li>
+                <li><span class="highlight">वैश्विक मान्यता:</span> अंतर्राष्ट्रीय अकादमिक जगत में भारतीय प्राचीन साहित्य की विश्वसनीयता में वृद्धि हुई।</li>
+            </ul>
+        </div>
+
+        <!-- Positive Point 2 -->
+        <div class="page-break"></div>
+        
+        <h3 class="section-head">१.२ लौह प्रौद्योगिकी और आर्थिक क्रांति</h3>
+
+        <div class="positive-box">
+            <div class="positive-box-title">द्वितीय सकारात्मक पक्ष: लौह क्रांति का केंद्र</div>
+            <p class="no-indent">हस्तिनापुर भारत में <strong>लौह प्रौद्योगिकी (Iron Technology)</strong> के प्रारंभिक केंद्रों में से एक था। चित्रित धूसर मृदभांड (PGW) काल के दौरान यहाँ के निवासियों ने लौह अयस्क को गलाने और उससे उपकरण बनाने की तकनीक (Metallurgy) में महारत हासिल कर ली थी।</p>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="image-container">
+            <div class="image-placeholder">
+                <span class="image-placeholder-icon">⚔️</span>
+                <span class="image-placeholder-text">PGW काल के लौह उपकरण<br>Iron Tools from PGW Period</span>
+            </div>
+            <p class="image-caption"><strong>चित्र 1.2:</strong> हस्तिनापुर उत्खनन से प्राप्त लौह उपकरण—कुल्हाड़ी, तीर के सिरे, चाकू आदि।</p>
+            <p class="image-source">स्रोत: B.B. Lal, Ancient India Report (1954)</p>
+        </div>
+
+        <p>लौह धातु के प्रयोग ने भारतीय सभ्यता की दिशा ही बदल दी। यह एक क्रांतिकारी परिवर्तन था जिसके दूरगामी प्रभाव हुए। लोहे की कुल्हाड़ियों ने घने जंगलों को साफ करना संभव बनाया, जो पहले तांबे या कांसे के औजारों से कठिन था। लोहे के हलों (Iron Ploughshares) ने गंगा-यमुना दोआब के कठिन जलोढ़ मैदानों को उपजाऊ खेतों में बदल दिया। इससे कृषि उत्पादन में भारी वृद्धि हुई।</p>
+
+        <div class="stats-grid">
+            <div class="stat-box" style="background: linear-gradient(135deg, #455a64, #263238);">
+                <span class="stat-icon">🪓</span>
+                <span class="stat-label">लोहे की कुल्हाड़ी</span>
+                <span class="stat-number" style="font-size: 12pt;">जंगल कटाई में सक्षम</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #5d4037, #3e2723);">
+                <span class="stat-icon">🔱</span>
+                <span class="stat-label">लोहे का हल</span>
+                <span class="stat-number" style="font-size: 12pt;">गहरी जुताई संभव</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #37474f, #1c313a);">
+                <span class="stat-icon">⚔️</span>
+                <span class="stat-label">लोहे के हथियार</span>
+                <span class="stat-number" style="font-size: 12pt;">सैन्य शक्ति में वृद्धि</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, var(--positive-green), #1b5e20);">
+                <span class="stat-icon">🌾</span>
+                <span class="stat-label">अधिशेष उत्पादन</span>
+                <span class="stat-number" style="font-size: 12pt;">व्यापार को प्रोत्साहन</span>
+            </div>
+        </div>
+
+        <h4 class="subsection-head">लौह क्रांति के आर्थिक प्रभाव</h4>
+
+        <p>लौह प्रौद्योगिकी ने एक श्रृंखलाबद्ध आर्थिक परिवर्तन को जन्म दिया। कृषि उत्पादन में वृद्धि से <span class="gold-highlight">अधिशेष अन्न (Surplus Grain)</span> का उत्पादन हुआ। यह अधिशेष व्यापार और प्रारंभिक बाजारों का आधार बना। अधिशेष उत्पादन ने एक ऐसे वर्ग को जन्म दिया जो कृषि से मुक्त होकर अन्य कार्यों—जैसे शिल्प, व्यापार, प्रशासन, धर्म—में संलग्न हो सका। यह <strong>श्रम-विभाजन (Division of Labour)</strong> की प्रारंभिक अवस्था थी।</p>
+
+        <div class="evidence-box">
+            <div class="evidence-title">पुरातात्विक साक्ष्य</div>
+            <ul class="academic-list">
+                <li>हस्तिनापुर के PGW स्तर से <strong>लोहे के स्लैग (Iron Slag)</strong> प्राप्त हुए हैं, जो लोहे को गलाने की प्रक्रिया के अवशेष हैं।</li>
+                <li>लोहे की <strong>कुल्हाड़ियाँ, हल के फाल, तीर के सिरे, चाकू, खंजर</strong> आदि मिले हैं।</li>
+                <li><strong>चावल, गेहूँ, जौ</strong> के कार्बनीकृत अवशेष मिले हैं, जो कृषि की उन्नति के प्रमाण हैं।</li>
+                <li><strong>गाय, भैंस, घोड़े, हाथी</strong> के अस्थि अवशेष पशुपालन की समृद्धि दर्शाते हैं।</li>
+            </ul>
+        </div>
+
+        <p>यह आर्थिक प्रगति ही थी जिसने कुरु वंश को तत्कालीन आर्यावर्त का सबसे शक्तिशाली राजनीतिक संगठन बनाया। लोहे के हथियारों ने सैन्य शक्ति को बढ़ाया, जिससे राज्य-विस्तार संभव हुआ। इस प्रकार, हस्तिनापुर लौह युग की भारतीय सभ्यता का एक प्रमुख केंद्र था।</p>
+
+        <div class="shloka-box">
+            <span class="shloka-text">"अयसा कृष्यते क्षेत्रं, अयसा जीयते रणः।<br>अयसा रक्ष्यते राज्यं, अयः सर्वस्य कारणम्।।"</span>
+            <span class="shloka-meaning">(लोहे से खेत जोते जाते हैं, लोहे से युद्ध जीते जाते हैं, लोहे से राज्य की रक्षा होती है—लोहा सब कुछ का कारण है।)</span>
+        </div>
+
+        <!-- Positive Point 3 -->
+        <h3 class="section-head">१.३ राज्य-निर्माण प्रक्रिया का केंद्र (State Formation)</h3>
+
+        <div class="positive-box">
+            <div class="positive-box-title">तृतीय सकारात्मक पक्ष: भारत की प्रथम राजधानी अवधारणा</div>
+            <p class="no-indent">हस्तिनापुर उस युग का प्रतिनिधित्व करता है जब भारतीय समाज <strong>कबीलाई व्यवस्था (Tribal System)</strong> से निकलकर <strong>क्षेत्रीय राज्य-व्यवस्था (Territorial State System)</strong> की ओर अग्रसर था। यहाँ हम 'जन' से 'जनपद' और 'जनपद' से 'महाजनपद' की ओर संक्रमण देखते हैं।</p>
+        </div>
+
+        <p>हस्तिनापुर ने भारत को पहली बार <span class="gold-highlight">'राजधानी' (Capital City)</span> की अवधारणा दी—एक ऐसा केंद्रीकृत स्थान जो सत्ता, प्रशासन और संस्कृति का केंद्र हो। यह एक क्रांतिकारी अवधारणा थी जिसने भारतीय राजनीतिक चिंतन को नई दिशा दी।</p>
+
+        <h4 class="subsection-head">कुरु वंश की शासन संस्थाएँ</h4>
+
+        <p>कुरु वंश की शासन-व्यवस्था उस समय की सबसे संगठित व्यवस्थाओं में से एक थी। यहाँ विभिन्न संस्थाएँ थीं जो राज्य के सुचारु संचालन में सहायक थीं:</p>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>संस्था</th>
+                        <th>कार्य</th>
+                        <th>महत्व</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>सभा</strong></td>
+                        <td>कुलीन वर्ग की परिषद, राजा को सलाह देना</td>
+                        <td>राजा की शक्ति पर अंकुश</td>
+                    </tr>
+                    <tr>
+                        <td><strong>समिति</strong></td>
+                        <td>जन-प्रतिनिधियों की सभा</td>
+                        <td>महत्वपूर्ण निर्णयों में जनता की भागीदारी</td>
+                    </tr>
+                    <tr>
+                        <td><strong>मंत्रिपरिषद</strong></td>
+                        <td>विदुर, भीष्म जैसे विद्वान मंत्रियों की सभा</td>
+                        <td>नीति निर्धारण में सहायता</td>
+                    </tr>
+                    <tr>
+                        <td><strong>पुरोहित</strong></td>
+                        <td>धार्मिक एवं नैतिक मार्गदर्शन</td>
+                        <td>राजधर्म का पालन सुनिश्चित करना</td>
+                    </tr>
+                    <tr>
+                        <td><strong>सेनापति</strong></td>
+                        <td>सैन्य मामलों का प्रमुख</td>
+                        <td>राज्य की सुरक्षा</td>
+                    </tr>
+                    <tr>
+                        <td><strong>न्यायाधीश</strong></td>
+                        <td>विवादों का निपटारा</td>
+                        <td>न्याय व्यवस्था का संचालन</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4 class="subsection-head">चतुरंगिणी सेना</h4>
+
+        <p>कुरु वंश की सैन्य व्यवस्था अत्यंत विकसित थी। <strong>चतुरंगिणी सेना</strong> की अवधारणा—जिसमें हस्ति (हाथी), अश्व (घोड़ा), रथ, और पदाति (पैदल सेना) शामिल थे—इसी काल की देन है। यह सैन्य संगठन इतना प्रभावी था कि बाद में चाणक्य ने भी इसका उल्लेख किया और शतरंज का खेल भी इसी अवधारणा पर आधारित है।</p>
+
+        <div class="stats-grid">
+            <div class="stat-box" style="background: linear-gradient(135deg, #795548, #4e342e);">
+                <span class="stat-icon">🐘</span>
+                <span class="stat-number">हस्ति</span>
+                <span class="stat-label">हाथी सेना</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #6d4c41, #3e2723);">
+                <span class="stat-icon">🐎</span>
+                <span class="stat-number">अश्व</span>
+                <span class="stat-label">घुड़सवार सेना</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #8d6e63, #5d4037);">
+                <span class="stat-icon">🛞</span>
+                <span class="stat-number">रथ</span>
+                <span class="stat-label">रथ सेना</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #a1887f, #6d4c41);">
+                <span class="stat-icon">🚶</span>
+                <span class="stat-number">पदाति</span>
+                <span class="stat-label">पैदल सेना</span>
+            </div>
+        </div>
+
+        <!-- Positive Point 4 -->
+        <div class="page-break"></div>
+        
+        <h3 class="section-head">१.४ सांस्कृतिक और धार्मिक बहुलतावाद</h3>
+
+        <div class="positive-box">
+            <div class="positive-box-title">चतुर्थ सकारात्मक पक्ष: धार्मिक सहिष्णुता का मॉडल</div>
+            <p class="no-indent">हस्तिनापुर प्राचीन भारत की <strong>धार्मिक बहुलता (Religious Pluralism)</strong> का जीवंत उदाहरण है। यहाँ वैदिक परंपरा और श्रमण परंपरा (जैन धर्म) दोनों सह-अस्तित्व में थीं, जो उस समाज की सहिष्णुता को दर्शाता है।</p>
+        </div>
+
+        <!-- Image 3 -->
+        <div class="image-container">
+            <div class="image-placeholder">
+                <span class="image-placeholder-icon">🛕</span>
+                <span class="image-placeholder-text">हस्तिनापुर जैन तीर्थ<br>Jain Pilgrimage Site at Hastinapura</span>
+            </div>
+            <p class="image-caption"><strong>चित्र 1.3:</strong> हस्तिनापुर में स्थित जम्बूद्वीप जैन मंदिर—जहाँ तीन तीर्थंकरों का जन्म हुआ।</p>
+            <p class="image-source">स्रोत: Jain Pilgrimage Archives</p>
+        </div>
+
+        <h4 class="subsection-head">सनातन परंपरा में हस्तिनापुर</h4>
+
+        <ul class="academic-list">
+            <li><span class="highlight">कुरु वंश की राजधानी:</span> सनातन परंपरा में हस्तिनापुर कुरुओं की राजधानी और राजधर्म की जननी है।</li>
+            <li><span class="highlight">भगवद्गीता का उद्गम:</span> कुरुक्षेत्र की रणभूमि में श्रीकृष्ण द्वारा अर्जुन को दिया गया दिव्य ज्ञान।</li>
+            <li><span class="highlight">शांति पर्व:</span> महाभारत के शांति पर्व में राजधर्म की विस्तृत मीमांसा।</li>
+            <li><span class="highlight">वैदिक यज्ञ:</span> राजसूय, अश्वमेध जैसे महायज्ञों का केंद्र।</li>
+        </ul>
+
+        <h4 class="subsection-head">जैन परंपरा में हस्तिनापुर</h4>
+
+        <p>जैन धर्म के इतिहास में हस्तिनापुर को <span class="gold-highlight">'अतिशय क्षेत्र'</span> (ऐसा स्थान जहाँ अलौकिक घटनाएँ घटित हुई हैं) माना जाता है। यहाँ तीन तीर्थंकरों का जन्म हुआ:</p>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>क्रम</th>
+                        <th>तीर्थंकर</th>
+                        <th>प्रतीक चिह्न</th>
+                        <th>विशेष महत्व</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center; font-weight: bold;">16वें</td>
+                        <td><strong>शांतिनाथ</strong></td>
+                        <td>हिरण (मृग)</td>
+                        <td>शांति और अहिंसा के प्रतीक</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; font-weight: bold;">17वें</td>
+                        <td><strong>कुंथुनाथ</strong></td>
+                        <td>बकरा (छाग)</td>
+                        <td>संयम और तपस्या के प्रतीक</td>
+                    </tr>
+                    <tr>
+                                            <tr>
+                        <td style="text-align: center; font-weight: bold;">18वें</td>
+                        <td><strong>अरहनाथ (अरनाथ)</strong></td>
+                        <td>मछली (मत्स्य)</td>
+                        <td>गहन ज्ञान के प्रतीक</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>जैन परंपरा के अनुसार, प्रथम तीर्थंकर <strong>भगवान ऋषभदेव</strong> ने हस्तिनापुर में अपना दीर्घकालिक तप समाप्त करने के पश्चात यहीं <span class="gold-highlight">इक्षु रस पारणा</span> (गन्ने के रस से व्रत तोड़ना) किया था। इस कारण जैन धर्म में <strong>अक्षय तृतीया</strong> का दिन अत्यंत पवित्र माना जाता है और इस दिन गन्ने के रस का दान करने की परंपरा है।</p>
+
+        <div class="highlight-bar">
+            यह सिद्ध करता है कि प्राचीन हस्तिनापुर एक सहिष्णु और 'कॉस्मोपॉलिटन' (Cosmopolitan) समाज था जहाँ भिन्न-भिन्न विचारधाराएँ साथ-साथ फल-फूल रही थीं। यह धार्मिक बहुलता आज भी भारतीय समाज की विशेषता है।
+        </div>
+
+        <!-- Positive Point 5 -->
+        <h3 class="section-head">१.५ सामाजिक स्तरीकरण और विशेषज्ञता का विकास</h3>
+
+        <div class="positive-box">
+            <div class="positive-box-title">पंचम सकारात्मक पक्ष: जटिल समाज का निर्माण</div>
+            <p class="no-indent">हस्तिनापुर वह स्थल है जहाँ हम भारतीय समाज को एक सरल कबीलाई ढाँचे से निकलकर एक जटिल <strong>'वर्ग-आधारित' और 'वर्ण-आधारित'</strong> समाज में बदलते हुए देखते हैं। यहाँ विभिन्न व्यावसायिक वर्ग उभर चुके थे।</p>
+        </div>
+
+        <p>यहाँ से प्राप्त पुरातात्विक साक्ष्य प्रमाणित करते हैं कि हस्तिनापुर में विभिन्न व्यावसायिक समूह विकसित हो चुके थे। <strong>शिल्पी वर्ग</strong> में लोहार (लौहकार), कुम्हार (कुलाल), बढ़ई (वर्धकि), स्वर्णकार, ताम्रकार आदि शामिल थे। <strong>योद्धा वर्ग (क्षत्रिय)</strong> राज्य की सुरक्षा और युद्ध के लिए उत्तरदायी था। <strong>पुरोहित वर्ग (ब्राह्मण)</strong> धार्मिक अनुष्ठान, शिक्षा और ज्ञान के संरक्षक थे। <strong>कृषक और व्यापारी वर्ग (वैश्य)</strong> अर्थव्यवस्था की रीढ़ थे।</p>
+
+        <div class="stats-grid">
+            <div class="stat-box" style="background: linear-gradient(135deg, #e91e63, #c2185b);">
+                <span class="stat-icon">🔨</span>
+                <span class="stat-number">��िल्पी</span>
+                <span class="stat-label">लोहार, कुम्हार, बढ़ई</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #9c27b0, #7b1fa2);">
+                <span class="stat-icon">⚔️</span>
+                <span class="stat-number">योद्धा</span>
+                <span class="stat-label">क्षत्रिय वर्ग</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #673ab7, #512da8);">
+                <span class="stat-icon">📿</span>
+                <span class="stat-number">पुरोहित</span>
+                <span class="stat-label">ब्राह्मण वर्ग</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #3f51b5, #303f9f);">
+                <span class="stat-icon">🌾</span>
+                <span class="stat-number">कृषक</span>
+                <span class="stat-label">वैश्य वर्ग</span>
+            </div>
+        </div>
+
+        <p>यह सामाजिक जटिलता और <strong>श्रम-विभाजन (Division of Labour)</strong> ही एक संगठित राज्य के निर्माण की पहली सीढ़ी थी। विशेषज्ञता ने उत्पादकता बढ़ाई, व्यापार को प्रोत्साहन दिया, और एक ऐसी अर्थव्यवस्था का निर्माण किया जो राज्य की शक्ति का आधार बनी। हस्तिनापुर में हम भारतीय समाज के इस महत्वपूर्ण संक्रमण के साक्षी बनते हैं।</p>
+
+        <!-- Positive Point 6 -->
+        <div class="page-break"></div>
+        
+        <h3 class="section-head">१.६ दार्शनिक और बौद्धिक विरासत</h3>
+
+        <div class="positive-box">
+            <div class="positive-box-title">षष्ठ सकारात्मक पक्ष: भारतीय दर्शन का उद्गम स्थल</div>
+            <p class="no-indent">हस्तिनापुर केवल राजनीतिक केंद्र नहीं था, बल्कि यह भारतीय <strong>दार्शनिक चिंतन की आधारशिला</strong> थी। भगवद्गीता, राजधर्म, निष्काम कर्म, स्थितप्रज्ञ—ये सभी महान अवधारणाएँ इसी धरती से जुड़ी हैं।</p>
+        </div>
+
+        <!-- Image 4 -->
+        <div class="image-container">
+            <div class="image-placeholder">
+                <span class="image-placeholder-icon">📜</span>
+                <span class="image-placeholder-text">भगवद्गीता - कुरुक्षेत्र का दिव्य संवाद<br>Bhagavad Gita - Divine Discourse</span>
+            </div>
+            <p class="image-caption"><strong>चित्र 1.4:</strong> कुरुक्षेत्र की रणभूमि में श्रीकृष्ण और अर्जुन का दिव्य संवाद—भगवद्गीता का उद्गम।</p>
+            <p class="image-source">स्रोत: Ancient Indian Art Collection</p>
+        </div>
+
+        <h4 class="subsection-head">भगवद्गीता के महान सिद्धांत</h4>
+
+        <p>भगवद्गीता, जो कुरुक्षेत्र की रणभूमि में अर्जुन को दी गई, विश्व साहित्य की सर्वश्रेष्ठ दार्शनिक कृतियों में से एक है। इसके प्रमुख सिद्धांत हैं:</p>
+
+        <div class="info-box">
+            <div class="info-box-title">📖 गीता के मूल सिद्धांत</div>
+            <ul class="academic-list">
+                <li><span class="highlight">निष्काम कर्म:</span> "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन" — फल की चिंता किए बिना कर्म करो। यह सिद्धांत आज भी प्रासंगिक है।</li>
+                <li><span class="highlight">स्थितप्रज्ञ:</span> सुख-दुख, लाभ-हानि, जय-पराजय में समान भाव रखने वाला व्यक्ति। मानसिक संतुलन की कला।</li>
+                <li><span class="highlight">योग:</span> "योगः कर्मसु कौशलम्" — कर्म में कुशलता ही योग है। उत्कृष्टता की खोज।</li>
+                <li><span class="highlight">समत्व:</span> सभी प्राणियों में समान दृष्टि रखना। सामाजिक समानता का आधार।</li>
+                <li><span class="highlight">आत्म-ज्ञान:</span> "आत्मानं विद्धि" — स्वयं को जानो। आत्म-साक्षात्कार की यात्रा।</li>
+            </ul>
+        </div>
+
+        <div class="shloka-box">
+            <span class="shloka-text">"योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय।<br>सिद्ध्यसिद्ध्योः समो भूत्वा समत्वं योग उच्यते।।"</span>
+            <span class="shloka-meaning">(हे धनंजय! आसक्ति त्यागकर, सिद्धि और असिद्धि में समान भाव रखते हुए योगस्थ होकर कर्म करो। समत्व ही योग कहलाता है।)</span>
+            <span class="shloka-source">— भगवद्गीता 2.48</span>
+        </div>
+
+        <h4 class="subsection-head">शांति पर्व में राजधर्म</h4>
+
+        <p>महाभारत के <strong>शांति पर्व</strong> में भीष्म द्वारा युधिष्ठिर को दिए गए राजधर्म के उपदेश भारतीय राजनीतिक दर्शन की आधारशिला हैं। इसमें राज्य-व्यवस्था, न्याय, नैतिकता, अर्थशास्त्र और धर्म पर गहन चर्चा है। "राजा कालस्य कारणं, राजा धर्मस्य कारणम्" — राजा व्यवस्था और धर्म दोनों का कारण है। यह सिद्धांत आज भी शासन के मूलभूत सिद्धांतों में गिना जाता है।</p>
+
+        <div class="quote-box">
+            <p class="quote-text">"प्रजाहितं राज्ञः धर्मः, न तु राज्ञः प्रियं प्रजाः।"</p>
+            <p class="quote-author">— प्रजा का हित ही राजा का धर्म है, न कि राजा का प्रिय करना प्रजा का कर्तव्य। (शांति पर्व)</p>
+        </div>
+
+        <!-- Positive Point 7 -->
+        <h3 class="section-head">१.७ व्यापार और आर्थिक केंद्र</h3>
+
+        <div class="positive-box">
+            <div class="positive-box-title">सप्तम सकारात्मक पक्ष: व्यापारिक समृद्धि</div>
+            <p class="no-indent">हस्तिनापुर की भौगोलिक स्थिति—<strong>गंगा नदी के तट पर, उत्तर भारत के मध्य में</strong>—इसे एक महत्वपूर्ण व्यापारिक केंद्र बनाती थी। जल मार्ग और स्थल मार्ग दोनों यहाँ से गुजरते थे।</p>
+        </div>
+
+        <p>व्यापार की दृष्टि से हस्तिनापुर की स्थिति अत्यंत अनुकूल थी। गंगा नदी माल परिवहन का प्रमुख मार्ग थी, जिससे पूर्व की ओर मगध, अंग, वंग तक और पश्चिम की ओर कुरुक्षेत्र, मथुरा तक व्यापार होता था। उत्तर-पश्चिम से पूर्व की ओर जाने वाले स्थल व्यापारिक मार्ग (जो बाद में उत्तरापथ कहलाया) हस्तिनापुर क्षेत्र से होकर गुजरता था।</p>
+
+        <ul class="academic-list">
+            <li><span class="highlight">कृषि उत्पाद:</span> चावल, गेहूँ, जौ, तिलहन का व्यापार होता था।</li>
+            <li><span class="highlight">शिल्प उत्पाद:</span> लोहे के उपकरण, मृद्भांड, वस्त्र, आभूषण।</li>
+            <li><span class="highlight">पशु व्यापार:</span> घोड़े, हाथी, गाय-भैंस का व्यापार।</li>
+            <li><span class="highlight">विलासिता की वस्तुएँ:</span> रत्न, मणि, सुगंधित द्रव्य।</li>
+        </ul>
+
+        <!-- Positive Point 8 -->
+        <h3 class="section-head">१.८ शिक्षा और ज्ञान का केंद्र</h3>
+
+        <div class="positive-box">
+            <div class="positive-box-title">अष्टम सकारात्मक पक्ष: गुरुकुल परंपरा</div>
+            <p class="no-indent">हस्तिनापुर शिक्षा का भी एक प्रमुख केंद्र था। यहाँ <strong>गुरुकुल परंपरा</strong> अत्यंत विकसित थी। द्रोणाचार्य का आश्रम, जहाँ कौरवों और पांडवों ने शिक्षा प्राप्त की, इसका प्रमाण है।</p>
+        </div>
+
+        <p>महाभारत में वर्णित है कि कौरव और पांडव राजकुमारों ने <strong>आचार्य द्रोण</strong> से अस्त्र-शस्त्र विद्या, <strong>आचार्य कृपाचार्य</strong> से युद्ध कौशल, और <strong>विदुर</strong> से राजनीति और नीतिशास्त्र की शिक्षा प्राप्त की। भीष्म स्वयं एक महान विद्वान थे जिन्होंने शांति पर्व में राजधर्म, आपद्धर्म, मोक्षधर्म आदि पर विस्तृत प्रवचन दिए।</p>
+
+        <div class="key-points-box">
+            <div class="key-points-title">शिक्षा के विषय</div>
+            <div class="badge-container">
+                <span class="achievement-badge">📚 वेद-वेदांग</span>
+                <span class="achievement-badge">⚔️ धनुर्विद्या</span>
+                <span class="achievement-badge">🏇 अश्वारोहण</span>
+                <span class="achievement-badge">🐘 गजारोहण</span>
+                <span class="achievement-badge">🎯 अस्त्र-शस्त्र</span>
+                <span class="achievement-badge">📜 राजनीति</span>
+                <span class="achievement-badge">⚖️ न्यायशास्त्र</span>
+                <span class="achievement-badge">🎵 संगीत-नृत्य</span>
+            </div>
+        </div>
+
+        <!-- Positive Point 9 -->
+        <h3 class="section-head">१.९ कला और संस्कृति का विकास</h3>
+
+        <div class="positive-box">
+            <div class="positive-box-title">नवम सकारात्मक पक्ष: कलात्मक समृद्धि</div>
+            <p class="no-indent">हस्तिनापुर में कला और संस्कृति का भी उल्लेखनीय विकास हुआ। <strong>मृद्भांड कला (Pottery Art)</strong>, विशेषकर PGW, इसका प्रमाण है। इन बर्तनों पर की गई ज्यामितीय चित्रकारी उस समय की कलात्मक रुचि को दर्शाती है।</p>
+        </div>
+
+        <!-- Image 5 -->
+        <div class="image-container">
+            <div class="image-placeholder">
+                <span class="image-placeholder-icon">🏺</span>
+                <span class="image-placeholder-text">PGW मृद्भांड - चित्रित धूसर बर्तन<br>Painted Grey Ware Pottery</span>
+            </div>
+            <p class="image-caption"><strong>चित्र 1.5:</strong> हस्तिनापुर से प्राप्त PGW मृद्भांड—ज्यामितीय आकृतियों से सुसज्जित।</p>
+            <p class="image-source">स्रोत: National Museum, New Delhi</p>
+        </div>
+
+        <p>PGW बर्तनों पर काले रंग से वृत्त, त्रिभुज, समानांतर रेखाएँ, तरंग, बिंदु आदि ज्यामितीय आकृतियाँ बनाई जाती थीं। यह एक विशिष्ट कला शैली थी जो इस काल की पहचान बन गई। इसके अतिरिक्त, आभूषण निर्माण, वस्त्र कला, और संगीत-नृत्य भी विकसित थे। महाभारत में वर्णित 'इंद्रप्रस्थ' की माया सभा, जिसका निर्माण मयासुर ने किया था, वास्तुकला की उत्कृष्टता का प्रतीक है।</p>
+
+        <!-- Positive Point 10 -->
+        <h3 class="section-head">१.१० प्रशासनिक व्यवस्था की उन्नति</h3>
+
+        <div class="positive-box">
+            <div class="positive-box-title">दशम सकारात्मक पक्ष: सुव्यवस्थित प्रशासन</div>
+            <p class="no-indent">कुरु वंश की प्रशासनिक व्यवस्था अत्यंत विकसित और सुव्यवस्थित थी। <strong>कर व्यवस्था, न्याय प्रणाली, और प्रशासनिक विभाजन</strong>—ये सभी तत्व उस समय की उन्नत शासन प्रणाली के प्रमाण हैं।</p>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>प्रशासनिक तत्व</th>
+                        <th>विवरण</th>
+                        <th>महत्व</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>कर व्यवस्था</strong></td>
+                        <td>भाग (1/6 कृषि उत्पाद), शुल्क (व्यापार कर), बलि (स्वैच्छिक दान)</td>
+                        <td>राजकोष की पूर्ति</td>
+                    </tr>
+                    <tr>
+                        <td><strong>न्याय प्रणाली</strong></td>
+                        <td>राजसभा में न्याय, धर्मशास्त्र आधारित निर्णय</td>
+                        <td>सामाजिक व्यवस्था</td>
+                    </tr>
+                    <tr>
+                        <td><strong>प्रशासनिक विभाजन</strong></td>
+                        <td>जनपद, ग्राम, नगर स्तरीय प्रशासन</td>
+                        <td>सुचारु शासन</td>
+                    </tr>
+                    <tr>
+                        <td><strong>गुप्तचर व्यवस्था</strong></td>
+                        <td>राज्य की सुरक्षा हेतु सूचना तंत्र</td>
+                        <td>आंतरिक सुरक्षा</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Summary of Positive Aspects -->
+        <div class="section-divider">✦ ✧ ✦ ✧ ✦</div>
+
+        <h3 class="section-head">१.११ सकारात्मक पक्षों का सारांश</h3>
+
+        <div class="key-points-box">
+            <div class="key-points-title">हस्तिनापुर की दस प्रमुख उपलब्धियाँ</div>
+            <div class="badge-container" style="margin-top: 15px;">
+                <span class="achievement-badge">✅ साहित्य-पुरातत्व समन्वय</span>
+                <span class="achievement-badge">✅ लौह क्रांति</span>
+                <span class="achievement-badge">✅ राज्य-निर्माण</span>
+                <span class="achievement-badge">✅ धार्मिक सहिष्णुता</span>
+                <span class="achievement-badge">✅ सामाजिक विकास</span>
+                <span class="achievement-badge">✅ दार्शनिक विरासत</span>
+                <span class="achievement-badge">✅ व्यापारिक केंद्र</span>
+                <span class="achievement-badge">✅ शिक्षा केंद्र</span>
+                <span class="achievement-badge">✅ कला-संस्कृति</span>
+                <span class="achievement-badge">✅ प्रशासनिक व्यवस्था</span>
+            </div>
+        </div>
+
+        <div class="shloka-box">
+            <span class="shloka-text">"धर्माय प्रभवत्यर्थः, धर्मात् कामोऽभिजायते।<br>धर्मेण सर्वमाप्नोति, धर्मः सारोऽयमुच्यते।।"</span>
+            <span class="shloka-meaning">(धर्म से ही अर्थ की प्राप्ति होती है, धर्म से ही कामनाओं की सिद्धि होती है, धर्म से ही सब कुछ प्राप्त होता है—धर्म ही सार है।)</span>
+            <span class="shloka-source">— हस्तिनापुर की राजनीति का मूल मंत्र</span>
+        </div>
+
+        <div class="highlight-bar">
+            हस्तिनापुर ने भारत को न केवल राजनीतिक, बल्कि दार्शनिक, सांस्कृतिक एवं आध्यात्मिक नेतृत्व भी प्रदान किया। यह भारतीय सभ्यता के 'स्वर्ण युग' की आधारशिला थी।
+        </div>
+    </section>
+
+    <!-- ==================== CHAPTER II: NEGATIVE ASPECTS ==================== -->
+    <div class="page-break"></div>
+
+    <section id="chapter2" class="chapter-section">
+        <h1 class="chapter-title">
+            <span class="chapter-number">अध्याय II</span>
+            हस्तिनापुर के नकारात्मक पक्ष
+        </h1>
+        <h3 style="text-align: center; color: var(--negative-red); font-size: 15pt; margin-bottom: 35px;">
+            ❌ Negative Aspects of Hastinapura - A Critical Analysis
+        </h3>
+
+        <!-- Introduction -->
+        <p class="drop-cap">किसी भी ऐतिहासिक अन्वेषण का दूसरा और अत्यंत महत्वपूर्ण पक्ष उसके अंतर्निहित दोषों और सीमाओं का निष्पक्ष विश्लेषण करना होता है। एक संतुलित एवं वैज्ञानिक अध्ययन सभ्यता के पतन के मूल कारणों की खोज के बिना अपूर्ण रहता है। हस्तिनापुर के वैभव और गौरव के नीचे कुछ ऐसी नकारात्मक धाराएँ भी प्रवाहित हो रही थीं, जिन्होंने अंततः इसके विनाश का मार्ग प्रशस्त किया। इस अध्याय में हम उन सभी नकारात्मक पक्षों का गहन और आलोचनात्मक विश्लेषण प्रस्तुत करेंगे जो हस्तिनापुर की सभ्यता के पतन के लिए उत्तरदायी थे।</p>
+
+        <p>यह विश्लेषण न केवल ऐतिहासिक दृष्टि से महत्वपूर्ण है, बल्कि यह आधुनिक विश्व के लिए भी शिक्षाप्रद है। जो समाज अपने अतीत की गलतियों से नहीं सीखते, वे उन्हें दोहराने के लिए अभिशप्त होते हैं। हस्तिनापुर की त्रासदी हमें पर्यावरणीय सचेतना, संस्थागत नैतिकता, और शांतिपूर्ण सह-अस्ति��्व के महत्व की याद दिलाती है।</p>
+
+        <!-- Negative Point 1 -->
+        <h3 class="section-head">२.१ साहित्यिक अतिशयोक्ति बनाम पुरातात्विक यथार्थ</h3>
+
+        <div class="negative-box">
+            <div class="negative-box-title">प्रथम नकारात्मक पक्ष: भव्यता का मिथक</div>
+            <p class="no-indent">महाभारत के 'सभा पर्व' में हस्तिनापुर के जिन <strong>मय-निर्मित सभा भवनों, स्वर्ण-स्तंभों, मणि-माणिक्य जड़ित महलों, और सात मंजिला प्रासादों</strong> का भव्य वर्णन है, पुरातात्विक खुदाई में उनका कोई नामो-निशान नहीं मिला।</p>
+        </div>
+
+        <!-- Image 6 -->
+        <div class="image-container">
+            <div class="image-placeholder">
+                <span class="image-placeholder-icon">🏚️</span>
+                <span class="image-placeholder-text">PGW काल के कच्चे मकान के अवशेष<br>Mud House Remains from PGW Period</span>
+            </div>
+            <p class="image-caption"><strong>चित्र 2.1:</strong> हस्तिनापुर उत्खनन से प्राप्त कच्चे मकानों (Wattle and Daub) के अवशेष—साहित्यिक भव्यता से सर्वथा भिन्न।</p>
+            <p class="image-source">स्रोत: ASI Excavation Report (1954)</p>
+        </div>
+
+        <p>पुरातात्विक साक्ष्य बताते हैं कि <strong>PGW काल में लोग कच्ची मिट्टी के घरों (Wattle and Daub Structures)</strong> में रहते थे, जो बांस, लकड़ी और मिट्टी से बने होते थे। कोई पक्का भवन नहीं, कोई ईंट की दीवार नहीं, कोई स्वर्ण अवशेष नहीं मिला। यह एक गंभीर विरोधाभास (Contradiction) है जो साहित्यिक वर्णन और पुरातात्विक यथार्थ के बीच एक बड़ी खाई को उजागर करता है।</p>
+
+        <div class="comparison-grid">
+            <div class="comparison-positive">
+                <div class="comparison-title">📖 साहित्यिक वर्णन</div>
+                <ul class="academic-list">
+                    <li>सात मंजिला स्वर्ण महल</li>
+                    <li>मणि-माणिक्य जड़ित स्तंभ</li>
+                    <li>मय-निर्मित माया सभा</li>
+                    <li>स्फटिक फर्श</li>
+                    <li>विशाल प्रासाद</li>
+                </ul>
+            </div>
+            <div class="comparison-negative">
+                <div class="comparison-title">🔍 पुरातात्विक यथार्थ</div>
+                <ul class="academic-list">
+                    <li>कच्ची मिट्टी के घर</li>
+                    <li>बांस-फूस की छत</li>
+                    <li>कोई पक्का भवन नहीं</li>
+                    <li>साधारण मृदभांड</li>
+                    <li>लौह उपकरण</li>
+                </ul>
+            </div>
+        </div>
+
+        <p>इस विरोधाभास की व्याख्या यह है कि महाभारत की वर्तमान रूप में रचना कई शताब्दियों (400 ई.पू. से 400 ई.) में हुई, और बाद के संपादकों ने अपने समय की समृद्धि (गुप्त काल या कुषाण काल) को प्राचीन कुरु काल में प्रक्षेपित (Interpolate) कर दिया। यह हमें सिखाता है कि <span class="gold-highlight">प्राचीन साहित्य को सावधानी और आलोचनात्मक दृष्टि से पढ़ना चाहिए।</span></p>
+
+        <!-- Negative Point 2 -->
+        <div class="page-break"></div>
+        
+        <h3 class="section-head">२.२ पारिस्थितिक अदूरदर्शिता और पर्यावरणीय भेद्यता</h3>
+
+        <div class="negative-box">
+            <div class="negative-box-title">द्वितीय नकारात्मक पक्ष: प्रकृति की उपेक्षा</div>
+            <p class="no-indent">हस्तिनापुर की भौगोलिक स्थिति <strong>गंगा के बाढ़-क्षेत्र (Flood Plain)</strong> के अत्यधिक निकट थी। यह एक गंभीर रणनीतिक और पर्यावरणीय चूक थी जिसने अंततः इस समृद्ध नगर को विनाश की ओर धकेल दिया।</p>
+        </div>
+
+        <!-- Image 7 -->
+        <div class="image-container">
+            <div class="image-placeholder">
+                <span class="image-placeholder-icon">🌊</span>
+                <span class="image-placeholder-text">गाद की परत - बाढ़ का साक्ष्य<br>Silt Layer - Evidence of Flood</span>
+            </div>
+            <p class="image-caption"><strong>चित्र 2.2:</strong> हस्तिनापुर उत्खनन में प्राप्त लगभग 1 मीटर मोटी गाद (Silt) की परत—गंगा की विनाशकारी बाढ़ का प्रमाण।</p>
+            <p class="image-source">स्रोत: B.B. Lal, Ancient India (1954)</p>
+        </div>
+
+        <p>नदी के किनारे बसना व्यापार, जल-आपूर्ति, और परिवहन के लिए तो अच्छा था, लेकिन <strong>बाढ़ नियंत्रण के लिए कोई स्थायी तकनीक विकसित न कर पाना</strong> एक बड़ी प्रशासनिक विफलता थी। प्रकृति की ताकत को कम आंकना और जल-प्रबंधन (Water Management) के प्रति उदासीनता ने अंततः पूरी राजधानी को जलमग्न कर दिया।</p>
+
+        <div class="evidence-box">
+            <div class="evidence-title">बाढ़ के पुरातात्विक साक्ष्य</div>
+            <ul class="academic-list">
+                <li>PGW स्तर (काल II) के ऊपर <strong>लगभग एक मीटर मोटी गाद (Silt) की परत</strong> मिली।</li>
+                <li>यह परत नदी द्वारा लाई गई महीन मिट्टी है, जो केवल भयंकर बाढ़ में ही जमा हो सकती है।</li>
+                <li>गाद की परत के ऊपर NBPW संस्कृति के साक्ष्य मिले—यानी बाढ़ के बाद सीमित पुनर्बसाहट हुई।</li>
+                <li>यह साक्ष्य मत्स्य पुराण के वर्णन से पूर्णतः मेल खाता है।</li>
+            </ul>
+        </div>
+
+        <div class="shloka-box">
+            <span class="shloka-text">"निचक्षोर्गङ्गया नष्टं हास्तिनापुरमाहवे।"</span>
+            <span class="shloka-meaning">(निचक्षु के समय गंगा द्वारा हस्तिनापुर नष्ट हो गया।)</span>
+            <span class="shloka-source">— मत्स्य पुराण</span>
+        </div>
+
+        <p>यह आधुनिक विश्व के लिए एक महत्वपूर्ण सबक है। आज जब हम जलवायु परिवर्तन (Climate Change) के कारण बढ़ते समुद्र स्तर, तीव्र बाढ़, और पर्यावरणीय आपदाओं का सामना कर रहे हैं, हस्तिनापुर की त्रासदी हमें चेतावनी देती है कि <span class="gold-highlight">प्रकृति के साथ सामंजस्य बनाए बिना कोई भी सभ्यता स्थायी नहीं रह सकती।</span></p>
+
+        <!-- Negative Point 3 -->
+        <h3 class="section-head">२.३ लिपि का अभाव और ऐतिहासिक शून्यता</h3>
+
+        <div class="negative-box">
+            <div class="negative-box-title">तृतीय नकारात्मक पक्ष: लिखित साक्ष्यों का अभाव</div>
+            <p class="no-indent">सिंधु घाटी सभ्यता (2600-1900 ई.पू.) के पास अपनी लिपि थी, लेकिन उसके सदियों बाद आए हस्तिनापुर (PGW काल, 1100-800 ई.पू.) के पास <strong>अपनी कोई लिखित लिपि नहीं थी।</strong> यह एक विचित्र और दुर्भाग्यपूर्ण पतन था।</p>
+        </div>
+
+        <p>लिपि के अभाव के गंभीर परिणाम हुए:</p>
+
+        <ul class="academic-list">
+            <li><span class="highlight">मौखिक परंपरा पर निर्भरता:</span> इस काल का इतिहास पूरी तरह से 'मौखिक परंपरा' (Oral Tradition) पर निर्भर रहा। जो भी कथाएँ, वंशावलियाँ, या घटनाएँ हम जानते हैं, वे सभी सदियों बाद लिखी गईं।</li>
+            <li><span class="highlight">परिवर्तन और अतिशयोक्ति:</span> मौखिक परंपरा में पीढ़ी-दर-पीढ़ी हस्तांतरण के दौरान अनेक परिवर्तन, अतिशयोक्तियाँ और प्रक्षेप हो गए।</li>
+            <li><span class="highlight">तिथि निर्धारण की समस्या:</span> लिखित साक्ष्यों की शून्यता के कारण सटीक तिथि निर्धारण कठिन है। महाभारत युद्ध की तिथि पर आज भी विद्वानों में मतभेद है—कुछ इसे 3102 ई.पू. मानते हैं, कुछ 1500 ई.पू., और कुछ 900 ई.पू.।</li>
+            <li><span class="highlight">व्यक्तिगत विवरणों का अभाव:</span> राजाओं के शासनकाल, युद्धों की सटीक तिथियाँ, प्रशासनिक दस्तावेज—सब कुछ अनुमान पर आधारित है।</li>
+        </ul>
+
+        <div class="comparison-grid">
+            <div class="comparison-positive">
+                <div class="comparison-title">सिंधु सभ्यता (2600-1900 ई.पू.)</div>
+                <ul class="academic-list">
+                    <li>✅ लिपि थी (अपठित)</li>
+                    <li>✅ मुहरें, अभिलेख</li>
+                    <li>✅ लिखित संचार</li>
+                </ul>
+            </div>
+            <div class="comparison-negative">
+                <div class="comparison-title">हस्तिनापुर (1100-800 ई.पू.)</div>
+                <ul class="academic-list">
+                    <li>❌ कोई लिपि नहीं</li>
+                    <li>❌ कोई अभिलेख नहीं</li>
+                    <li>❌ मौखिक परंपरा</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Negative Point 4 -->
+        <h3 class="section-head">२.४ नैतिक और संस्थागत पतन</h3>
+
+        <div class="negative-box">
+            <div class="negative-box-title">चतुर्थ नकारात्मक पक्ष: धर्म का खोखलापन</div>
+            <p class="no-indent">हस्तिनापुर के राजमहल केवल शक्ति के केंद्र नहीं थे, बल्कि वे <strong>षड्यंत्रों, छल-कपट, और नैतिक पतन</strong> के भी केंद्र बन गए थे। जिस 'धर्म' की दुहाई दी जाती थी, वह संस्थागत रूप से खोखला हो चुका था।</p>
+        </div>
+
+        <h4 class="subsection-head">द्यूत-क्रीड़ा: नैतिक पतन का प्रतीक</h4>
+
+        <p>महाभारत के सभा पर्व में वर्णित <strong>द्यूत-क्रीड़ा (जुआ खेल)</strong> हस्तिनापुर के नैतिक पतन का सबसे बड़ा प्रतीक है। इस घटना का विश्लेषण करें:</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-period">षड्यंत्र</div>
+                <div class="timeline-title">शकुनि का छल</div>
+                <p class="timeline-desc">शकुनि ने विशेष पासों का प्रयोग किया जो हमेशा उसके अनुकूल गिरते थे—यह राजकीय स्तर पर धोखाधड़ी थी।</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">हार</div>
+                <div class="timeline-title">युधिष्ठिर का सब कुछ हारना</div>
+                <p class="timeline-desc">धर्मराज युधिष्ठिर ने राज्य, भाई, स्वयं, और अंततः द्रौपदी को दाँव पर लगाया—यह विवेक का पूर्ण अभाव था।</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">अपमान</div>
+                <div class="timeline-title">द्रौपदी का चीरहरण</div>
+                <p class="timeline-desc">राजसभा में कुलवधु का सार्वजनिक अपमान—सभ्यता के सबसे निचले स्तर का प्रदर्शन।</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">मौन</div>
+                <div class="timeline-title">भीष्म-द्रोण की चुप्पी</div>
+                <p class="timeline-desc">महान योद्धाओं और विद्वानों की 'मौन सहमति' (Silent Consent)—संस्थागत विफलता।</p>
+            </div>
+        </div>
+
+        <div class="quote-box">
+            <p class="quote-text">"किं नु शक्यं मया कर्तुं, यत्र धर्मो न विद्यते?"</p>
+            <p class="quote-author">— द्रौपदी का प्रश्न: जहाँ धर्म ही नहीं है, वहाँ मैं क्या कर सकती हूँ?</p>
+        </div>
+
+        <p>द्रौपदी का प्रसिद्ध प्रश्न—<em>"क्या युधिष्ठिर ने पहले स्वयं को हारा या मुझे?"</em>—आज भी न्यायशास्त्र का एक महत्वपूर्ण प्रश्न है। यदि युधिष्ठिर ने स्वयं को पहले हार दिया था, तो वे द्रौपदी को दाँव पर लगाने के अधिकारी ही नहीं थे। यह प्रश्न सभा में उपस्थित किसी ने नहीं उठाया—यह न्याय-व्यवस्था की पूर्ण विफलता थी।</p>
+
+        <!-- Negative Point 5 -->
+        <div class="page-break"></div>
+        
+        <h3 class="section-head">२.५ युद्ध की विनाशकारी लागत</h3>
+
+        <div class="negative-box">
+            <div class="negative-box-title">पंचम नकारात्मक पक्ष: कुरुक्षेत्र का महाविनाश</div>
+            <p class="no-indent">हस्तिनापुर का सबसे बड़ा नकारात्मक पक्ष इसकी वह <strong>आधिपत्यवादी राजनीति</strong> थी, जिसकी परिणति कुरुक्षेत्र महायुद्ध में हुई। यह युद्ध 18 दिनों तक चला और इसने एक पूरी सभ्यता को विनाश के कगार पर पहुँचा दिया।</p>
+        </div>
+
+        <!-- Image 8 -->
+        <div class="image-container">
+            <div class="image-placeholder">
+                <span class="image-placeholder-icon">⚔️</span>
+                <span class="image-placeholder-text">कुरुक्षेत्र युद्ध - महाविनाश<br>Kurukshetra War - The Great Destruction</span>
+            </div>
+            <p class="image-caption"><strong>चित्र 2.3:</strong> कुरुक्षेत्र युद्ध का कलात्मक चित्रण—18 दिनों के इस महायुद्ध ने लाखों योद्धाओं का जीवन लील लिया।</p>
+            <p class="image-source">स्रोत: Ancient Indian War Art</p>
+        </div>
+
+        <p>महाभारत के अनुसार इस युद्ध में भारी जनहानि हुई:</p>
+
+        <div class="stats-grid">
+            <div class="stat-box" style="background: linear-gradient(135deg, var(--negative-red), #b71c1c);">
+                <span class="stat-icon">💀</span>
+                <span class="stat-number">18</span>
+                <span class="stat-label">अक्षौहिणी सेना का विनाश</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #d32f2f, #c62828);">
+                <span class="stat-icon">📅</span>
+                <span class="stat-number">18</span>
+                <span class="stat-label">दिनों का युद्ध</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #e53935, #c62828);">
+                <span class="stat-icon">👑</span>
+                <span class="stat-number">100</span>
+                <span class="stat-label">कौरवों की मृत्यु</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #f44336, #d32f2f);">
+                <span class="stat-icon">😢</span>
+                <span class="stat-number">5</span>
+                <span class="stat-label">पांडव पुत्रों की मृत्यु</span>
+            </div>
+        </div>
+
+        <p>भले ही महाभारत में वर्णित संख्याएँ अतिशयोक्तिपूर्ण हों (एक अक्षौहिणी में लगभग 2 लाख सैनिक माने जाते हैं), किंतु इतना निश्चित है कि इस युद्ध ने एक बहुत बड़े मानव संसाधन को नष्ट कर दिया। युद्ध के परिणाम विनाशकारी थे:</p>
+
+        <ul class="academic-list">
+            <li><span class="highlight">जनसांख्यिकीय पतन:</span> एक पूरी पीढ़ी के युवा पुरुष युद्ध में मारे गए। कौरव वंश लगभग समाप्त हो गया।</li>
+            <li><span class="highlight">आर्थिक विनाश:</span> अर्थव्यवस्था चरमरा गई, उत्पादन ठप्प हो गया, खेत बंजर हो गए।</li>
+            <li><span class="highlight">सामाजिक विघटन:</span> लाखों विधवाएँ, अनाथ बच्चे, टूटे परिवार।</li>
+            <li><span class="highlight">नैतिक क्षति:</span> भीष्म, द्रोण, कर्ण जैसे महान योद्धाओं की मृत्यु—ज्ञान और अनुभव का अपूरणीय नुकसान।</li>
+        </ul>
+
+        <div class="shloka-box">
+            <span class="shloka-text">"हतो वा प्राप्स्यसि स्वर्गं जित्वा वा भोक्ष्यसे महीम्।"</span>
+            <span class="shloka-meaning">(मारे जाने पर स्वर्ग प्राप्त करोगे, जीतने पर पृथ्वी का भोग करोगे।)</span>
+            <span class="shloka-source">— भगवद्गीता 2.37 (किंतु क्या यह 'जीत' वास्तव में जीत थी?)</span>
+        </div>
+
+        <p>महाभारत स्वयं स्वीकार करता है कि युद्ध के पश्चात <strong>केवल परीक्षित (अभिमन्यु का पुत्र) ही बचा, वह भी गर्भ में।</strong> एक उन्नत सभ्यता का ऐसा विध्वंसकारी अंत इसकी <span class="gold-highlight">कूटनीतिक विफलता</span> का प्रमाण है। यदि शांति वार्ता सफल हो जाती, यदि श्रीकृष्ण का शांति प्रस्ताव (पाँच गाँव) स्वीकार कर लिया जाता, तो यह विनाश टाला जा सकता था।</p>
+
+        <!-- Negative Point 6 -->
+        <h3 class="section-head">२.६ राजनीतिक उत्तराधिकार की समस्या</h3>
+
+        <div class="negative-box">
+            <div class="negative-box-title">षष्ठ नकारात्मक पक्ष: अस्पष्ट उत्तराधिकार नियम</div>
+            <p class="no-indent">हस्तिनापुर में राजनीतिक <strong>उत्तराधिकार (Succession)</strong> की कोई स्पष्ट संवैधानिक व्यवस्था नहीं थी, जो अनेक संघर्षों का मूल कारण बनी।</p>
+        </div>
+
+        <p>उत्तराधिकार की समस्या का विश्लेषण करें:</p>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>प्रश्न</th>
+                        <th>संभावित दावेदार</th>
+                        <th>तर्क</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ज्येष्ठता के आधार पर?</td>
+                        <td><strong>युधिष्ठिर</strong></td>
+                        <td>पांडु के ज्येष्ठ पुत्र, धृतराष्ट्र अंधे होने के कारण अयोग्य</td>
+                    </tr>
+                    <tr>
+                        <td>वास्तविक पिता के आधार पर?</td>
+                        <td><strong>दुर्योधन</strong></td>
+                        <td>धृतराष्ट्र के ज्येष्ठ पुत्र, धृतराष्ट्र कार्यवाहक राजा थे</td>
+                    </tr>
+                    <tr>
+                        <td>योग्यता के आधार पर?</td>
+                        <td><strong>अर्जुन या भीम</strong></td>
+                        <td>सर्वश्रेष्ठ योद्धा और सेनापति</td>
+                    </tr>
+                    <tr>
+                        <td>जन्म क्रम के आधार पर?</td>
+                        <td><strong>कर्ण</strong></td>
+                        <td>कुंती के ज्येष्ठ पुत्र (विवाह पूर्व)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>इस अस्पष्टता ने कौरव-पांडव संघर्ष को जन्म दिया। एक सुदृढ़ संवैधानिक व्यवस्था का अभाव था जो उत्तराधिकार के नियमों को स्पष्ट रूप से परिभाषित करती। यह <strong>राजनीतिक अपरिपक्वता (Political Immaturity)</strong> अंततः राज्य के विनाश का कारण बनी।</p>
+
+        <!-- Negative Point 7 -->
+        <h3 class="section-head">२.७ सामाजिक विषमता और भेदभाव</h3>
+
+        <div class="negative-box">
+            <div class="negative-box-title">सप्तम नकारात्मक पक्ष: जातिगत भेदभाव</div>
+            <p class="no-indent">हस्तिनापुर के समाज में <strong>जातिगत भेदभाव और सामाजिक विषमता</strong> के अनेक उदाहरण मिलते हैं, जो उस समाज की सीमाओं को उजागर करते हैं।</p>
+        </div>
+
+        <ul class="academic-list">
+            <li><span class="highlight">एकलव्य का अंगूठा:</span> निषादपुत्र एकलव्य से द्रोणाचार्य ने गुरुदक्षिणा में अंगूठा माँग लिया ताकि वह अर्जुन से श्रेष्ठ धनुर्धर न बन सके। यह जातिगत भेदभाव का स्पष्ट उदाहरण है।</li>
+            <li><span class="highlight">कर्ण का अपमान:</span> सूतपुत्र कहकर कर्ण का बार-बार अपमान किया गया, भले ही वह महान योद्धा था।</li>
+            <li><span class="highlight">द्रौपदी का वक्तव्य:</span> स्वयंवर में कर्ण को "सूतपुत्र" कहकर प्रतियोगिता से वंचित किया गया।</li>
+            <li><span class="highlight">दास प्रथा:</span> समाज में दास प्रथा विद्यमान थी, हारे हुए राज्यों के लोगों को दास बनाया जाता था।</li>
+        </ul>
+
+        <div class="quote-box">
+            <p class="quote-text">"जन्मना जायते शूद्रः, कर्मणा द्विज उच्यते।"</p>
+            <p class="quote-author">— जन्म से सभी शूद्र होते हैं, कर्म से द्विज बनते हैं। (किंतु व्यवहार में यह सिद्धांत लागू नहीं होता था)</p>
+        </div>
+
+        <!-- Negative Point 8 -->
+        <h3 class="section-head">२.८ स्त्रियों की दुर्दशा</h3>
+
+        <div class="negative-box">
+            <div class="negative-box-title">अष्टम नकारात्मक पक्ष: नारी अपमान</div>
+            <p class="no-indent">महाभारत में स्त्रियों के साथ हुए <strong>अन्याय और अपमान</strong> के अनेक उदाहरण हैं, जो उस समाज की पितृसत्तात्मक सीमाओं को दर्शाते हैं।</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-title">द्रौपदी का चीरहरण</div>
+                <p class="timeline-desc">राजसभा में कुलवधु का सार्वजनिक अपमान—सभ्यता का सबसे काला अध्याय।</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">अंबा की त्रासदी</div>
+                <p class="timeline-desc">भीष्म द्वारा अपहृत, विचित्रवीर्य द्वारा त्यागी, शाल्व द्वारा अस्वीकृत—जीवन भर पीड़ित।</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">गांधारी का बलिदान</div>
+                <p class="timeline-desc">अंधे पति के साथ एकात्मता के लिए आजीवन आँखों पर पट्टी—स्त्री की आकांक्षाओं का दमन।</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">कुंती का रहस्य</div>
+                <p class="timeline-desc">विवाह पूर्व पुत्र (कर्ण) को त्यागना पड़ा—सामाजिक दबाव का शिकार।</p>
+            </div>
+        </div>
+
+        <!-- Summary of Negative Aspects -->
+        <div class="section-divider">✦ ✧ ✦ ✧ ✦</div>
+
+        <h3 class="section-head">२.९ नकारात्मक पक्षों का सारांश</h3>
+
+        <div class="info-box" style="border-color: var(--negative-red); background: linear-gradient(to right, #ffebee, #fff);">
+            <div class="info-box-title" style="color: var(--negative-red);">❌ हस्तिनापुर की आठ प्रमुख विफलताएँ</div>
+            <div class="badge-container" style="margin-top: 15px;">
+                <span class="achievement-badge" style="background: linear-gradient(135deg, var(--negative-red), #b71c1c);">❌ साहित्यिक अतिशयोक्ति</span>
+                <span class="achievement-badge" style="background: linear-gradient(135deg, var(--negative-red), #b71c1c);">❌ पर्यावरणीय उपेक्षा</span>
+                <span class="achievement-badge" style="background: linear-gradient(135deg, var(--negative-red), #b71c1c);">❌ लिपि का अभाव</span>
+                <span class="achievement-badge" style="background: linear-gradient(135deg, var(--negative-red), #b71c1c);">❌ नैतिक पतन</span>
+                <span class="achievement-badge" style="background: linear-gradient(135deg, var(--negative-red), #b71c1c);">❌ युद्ध का विनाश</span>
+                <span class="achievement-badge" style="background: linear-gradient(135deg, var(--negative-red), #b71c1c);">❌ उत्तराधिकार समस्या</span>
+                <span class="achievement-badge" style="background: linear-gradient(135deg, var(--negative-red), #b71c1c);">❌ सामाजिक भेदभाव</span>
+                <span class="achievement-badge" style="background: linear-gradient(135deg, var(--negative-red), #b71c1c);">❌ नारी अपमान</span>
+            </div>
+        </div>
+
+        <div class="highlight-bar">
+            "जो इतिहास से नहीं सीखते, वे उसे दोहराने के लिए अभिशप्त होते हैं।"<br>
+            — जॉर्ज सांतायना (George Santayana)
+        </div>
+    </section>
+
+    <!-- ==================== CHAPTER III: BIBLIOGRAPHY ==================== -->
+    <div class="page-break"></div>
+
+    <section id="chapter3" class="chapter-section">
+        <h1 class="chapter-title">
+            <span class="chapter-number">अध्याय III</span>
+            संदर्भ ग्रंथ सूची
+        </h1>
+        <h3 style="text-align: center; color: #1565c0; font-size: 15pt; margin-bottom: 35px;">
+            📚 Bibliography - Comprehensive Reference List
+        </h3>
+
+        <p class="drop-cap">प्रस्तुत शोध-प्रबंध के लेखन में विभिन्न प्राथमिक एवं द्वितीयक स्रोतों का गहन अध्ययन किया गया है। इस अध्याय में उन सभी महत्वपूर्ण ग्रंथों, शोध-पत्रों, पुरातात्विक रिपोर्टों और ऑनलाइन संसाधनों की विस्तृत सूची प्रस्तुत है जो इस शोध का आधार बने। संदर्भ ग्रंथ सूची को विभिन्न श्रेणियों में वर्गीकृत किया गया है ताकि भविष्य के शोधार्थियों को संबंधित स्रोत खोजने में सुविधा हो।</p>
+
+        <!-- Primary Sources -->
+        <h3 class="section-head">३.१ प्राथमिक स्रोत (Primary Sources)</h3>
+
+        <h4 class="subsection-head">संस्कृत महाकाव्य एवं पुराण</h4>
+
+        <div class="reference-item">
+            <span class="reference-number">1</span>
+            <strong>महाभारत (Critical Edition):</strong> Sukthankar, V.S. et al. (eds.). 1933-1966. <em>The Mahabharata: Critical Edition.</em> Bhandarkar Oriental Research Institute (BORI), Pune. 19 Volumes. [यह महाभारत का सबसे प्रामाणिक संस्करण है, जिसमें विभिन्न पांडुलिपियों का तुलनात्मक अध्ययन किया गया है।]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">2</span>
+            <strong>विष्णु पुराण:</strong> Wilson, H.H. (trans.). 1840. <em>The Vishnu Purana: A System of Hindu Mythology and Tradition.</em> London: John Murray. [कुरु वंश की वंशावली का प्रमुख स्रोत।]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">3</span>
+            <strong>वायु पुराण:</strong> Tagare, G.V. (trans.). 1987-88. <em>The Vayu Purana.</em> Ancient Indian Tradition and Mythology Series, Vol. 37-38. Motilal Banarsidass, Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">4</span>
+            <strong>मत्स्य पुराण:</strong> A Board of Scholars (trans.). 1972. <em>The Matsya Purana.</em> Ancient Indian Tradition and Mythology Series. Motilal Banarsidass, Delhi. [हस्तिनापुर की बाढ़ का प्रमुख साहित्यिक स्रोत।]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">5</span>
+            <strong>भागवत पुराण:</strong> Tagare, G.V. (trans.). 1976. <em>The Bhagavata Purana.</em> Motilal Banarsidass, Delhi.
+        </div>
+
+        <h4 class="subsection-head">जैन ग्रंथ</h4>
+
+        <div class="reference-item">
+            <span class="reference-number">6</span>
+            <strong>भगवती सूत्र:</strong> Deleu, Jozef. 1970. <em>Viyahapannatti (Bhagavai): The Fifth Anga of the Jaina Canon.</em> Brugge: Rijksuniversiteit te Gent.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">7</span>
+            <strong>त्रिषष्टिशलाकापुरुष चरित्र:</strong> Hemachandra. <em>Trishashtishalakapurusha Charita.</em> [जैन तीर्थंकरों के जीवन का विस्तृत वर्णन।]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">8</span>
+            <strong>आदि पुराण:</strong> Jinasena. <em>Adi Purana.</em> [भगवान ऋषभदेव के जीवन का वर्णन।]
+        </div>
+
+        <h4 class="subsection-head">पुरातात्विक रिपोर्ट</h4>
+
+        <div class="reference-item">
+            <span class="reference-number">9</span>
+            <strong>ASI Excavation Report:</strong> Lal, B.B. 1954-55. "Excavations at Hastinapura and other Explorations in the Upper Ganga and Sutlej Basins." <em>Ancient India,</em> Nos. 10 & 11, pp. 5-151. Archaeological Survey of India. [<strong>हस्तिनापुर पर सबसे महत्वपूर्ण पुरातात्विक दस्तावेज।</strong>]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">10</span>
+            <strong>Indian Archaeology - A Review:</strong> Archaeological Survey of India. Annual Reports 1950-1960. New Delhi.
+        </div>
+
+        <!-- Secondary Sources - Books -->
+        <div class="page-break"></div>
+        
+        <h3 class="section-head">३.२ द्वितीयक स्रोत - पुस्तकें (Secondary Sources - Books)</h3>
+
+        <h4 class="subsection-head">पुरातत्व एवं प्राचीन इतिहास</h4>
+
+        <div class="reference-item">
+            <span class="reference-number">11</span>
+            <strong>Lal, B.B.</strong> (1955). <em>Excavations at Hastinapura and Other Explorations.</em> Archaeological Survey of India, New Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">12</span>
+            <strong>Lal, B.B.</strong> (2002). <em>The Sarasvati Flows On: The Continuity of Indian Culture.</em> Aryan Books International, New Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">13</span>
+            <strong>Lal, B.B.</strong> (2005). <em>The Homeland of the Aryans: Evidence of Rigvedic Flora and Fauna & Archaeology.</em> Aryan Books International, New Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">14</span>
+            <strong>Sharma, R.S.</strong> (1983). <em>Material Culture and Social Formations in Ancient India.</em> Macmillan Publishers, Delhi. [भौतिक संस्कृति और सामाजिक संरचना का विश्लेषण।]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">15</span>
+            <strong>Sharma, R.S.</strong> (1990). <em>Aspects of Political Ideas and Institutions in Ancient India.</em> Motilal Banarsidass, Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">16</span>
+            <strong>Sharma, R.S.</strong> (1996). <em>The State and Varna Formation in the Mid-Ganga Plains.</em> Manohar Publishers, Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">17</span>
+            <strong>Thapar, Romila.</strong> (2002). <em>Early India: From the Origins to AD 1300.</em> Penguin Books, London. [प्राचीन भारत का व्यापक इतिहास।]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">18</span>
+            <strong>Thapar, Romila.</strong> (1984). <em>From Lineage to State: Social Formations in the Mid-First Millennium B.C. in the Ganga Valley.</em> Oxford University Press, Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">19</span>
+            <strong>Thapar, Romila.</strong> (1978). <em>Ancient Indian Social History: Some Interpretations.</em> Orient Longman, Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">20</span>
+            <strong>Basham, A.L.</strong> (1954). <em>The Wonder That Was India.</em> Sidgwick & Jackson, London. [प्राचीन भारतीय सभ्यता का क्लासिक ग्रंथ।]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">21</span>
+            <strong>Kosambi, D.D.</strong> (1956). <em>An Introduction to the Study of Indian History.</em> Popular Prakashan, Mumbai. [भारतीय इतिहास का मार्क्सवादी विश्लेषण।]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">22</span>
+            <strong>Kosambi, D.D.</strong> (1965). <em>The Culture and Civilisation of Ancient India in Historical Outline.</em> Routledge & Kegan Paul, London.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">23</span>
+            <strong>Tripathi, Vibha.</strong> (1976). <em>The Painted Grey Ware: An Iron Age Culture of Northern India.</em> Concept Publishing Company, Delhi. [PGW संस्कृति का विशेष अध्ययन।]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">24</span>
+            <strong>Singh, Upinder.</strong> (2008). <em>A History of Ancient and Early Medieval India: From the Stone Age to the 12th Century.</em> Pearson Education, Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">25</span>
+            <strong>Raychaudhuri, H.C.</strong> (1923). <em>Political History of Ancient India: From the Accession of Parikshit to the Extinction of the Gupta Dynasty.</em> University of Calcutta.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">26</span>
+            <strong>Ghosh, A.</strong> (ed.). (1989). <em>An Encyclopaedia of Indian Archaeology.</em> 2 Volumes. Munshiram Manoharlal Publishers, New Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">27</span>
+            <strong>Chakrabarti, D.K.</strong> (1988). <em>A History of Indian Archaeology from the Beginning to 1947.</em> Munshiram Manoharlal Publishers, New Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">28</span>
+            <strong>Allchin, B. & Allchin, R.</strong> (1982). <em>The Rise of Civilization in India and Pakistan.</em> Cambridge University Press.
+        </div>
+
+        <!-- Research Papers -->
+        <h3 class="section-head">३.३ शोध पत्र एवं लेख (Research Papers & Articles)</h3>
+
+        <div class="reference-item">
+            <span class="reference-number">29</span>
+            <strong>Lal, B.B.</strong> (1950). "Protohistoric Investigation." <em>Ancient India,</em> No. 5, pp. 53-73.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">30</span>
+            <strong>Lal, B.B.</strong> (1981). "The Two Indian Epics vis-à-vis Archaeology." <em>Antiquity,</em> Vol. 55, pp. 27-34.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">31</span>
+            <strong>Lal, B.B.</strong> (1984). "The Painted Grey Ware Culture of the Iron Age." <em>History of Indian Science, Technology and Culture AD 1000-1800.</em>
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">32</span>
+            <strong>Dikshit, K.N.</strong> (1984). "The Sothi Complex: Old Records and Fresh Observations." <em>Frontiers of the Indus Civilization.</em> Books and Books, New Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">33</span>
+            <strong>Erdosy, George.</strong> (1988). <em>Urbanisation in Early Historic India.</em> BAR International Series 430, Oxford.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">34</span>
+            <strong>Gaur, R.C.</strong> (1983). <em>Excavations at Atranjikhera: Early Civilization of the Upper Ganga Basin.</em> Motilal Banarsidass, Delhi.
+        </div>
+
+        <!-- Hindi Sources -->
+        <div class="page-break"></div>
+        
+        <h3 class="section-head">३.४ हिंदी स्रोत (Hindi Sources)</h3>
+
+        <div class="reference-item">
+            <span class="reference-number">35</span>
+            <strong>द्विवेदी, हजारीप्रसाद।</strong> (1960). <em>प्राचीन भारत का इतिहास।</em> राजकमल प्रकाशन, दिल्ली।
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">36</span>
+            <strong>पाण्डेय, राजबली।</strong> (1965). <em>हिन्दू संस्कार।</em> चौखम्बा विद्याभवन, वाराणसी।
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">37</span>
+            <strong>उपाध्याय, बलदेव।</strong> (1970). <em>संस्कृत साहित्य का इतिहास।</em> शारदा निकेतन, वाराणसी।
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">38</span>
+            <strong>ओझा, गौरीशंकर।</strong> (1918). <em>प्राचीन भारतीय लिपिमाला।</em> अजमेर।
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">39</span>
+            <strong>शर्मा, रामशरण।</strong> (1988). <em>प्राचीन भारत में भौतिक प्रगति एवं सामाजिक संरचनाएँ।</em> राजकमल प्रकाशन, दिल्ली।
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">40</span>
+            <strong>त्रिपाठी, रामप्रसाद।</strong> (1942). <em>प्राचीन भारत का इतिहास।</em> मोतीलाल बनारसीदास, दिल्ली।
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">41</span>
+            <strong>झा, डी.एन.</strong> (2004). <em>प्राचीन भारत: एक रूपरेखा।</em> मनोहर प्रकाशन, दिल्ली।
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">42</span>
+            <strong>शास्त्री, नीलकंठ।</strong> (1967). <em>प्राचीन भारत का राजनीतिक इतिहास।</em> राजकमल प्रकाशन, दिल्ली।
+        </div>
+
+        <!-- Jain Sources -->
+        <h3 class="section-head">३.५ जैन धर्म संबंधी स्रोत</h3>
+
+        <div class="reference-item">
+            <span class="reference-number">43</span>
+            <strong>Jain, J.C.</strong> (1984). <em>Life in Ancient India as Depicted in Jain Canons.</em> Munshiram Manoharlal Publishers, New Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">44</span>
+            <strong>Jain, J.P.</strong> (1979). <em>The Jaina Sources of the History of Ancient India.</em> Munshiram Manoharlal Publishers, New Delhi.
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">45</span>
+            <strong>Sangave, Vilas.</strong> (2001). <em>Facets of Jainology.</em> Popular Prakashan, Mumbai.
+        </div>
+
+        <!-- Online Resources -->
+        <h3 class="section-head">३.६ ऑनलाइन संसाधन (Online Resources)</h3>
+
+        <div class="reference-item">
+            <span class="reference-number">46</span>
+            <strong>Archaeological Survey of India:</strong> <a href="https://asi.nic.in/" target="_blank">https://asi.nic.in/</a> [भारतीय पुरातत्व सर्वेक्षण की आधिकारिक वेबसाइट।]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">47</span>
+            <strong>Digital Library of India:</strong> <a href="https://www.dli.ernet.in/" target="_blank">https://www.dli.ernet.in/</a> [दुर्लभ पुस्तकों का डिजिटल संग्रह।]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">48</span>
+            <strong>IGNCA (Indira Gandhi National Centre for the Arts):</strong> <a href="https://ignca.gov.in/" target="_blank">https://ignca.gov.in/</a>
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">49</span>
+            <strong>JSTOR (Academic Database):</strong> <a href="https://www.jstor.org/" target="_blank">https://www.jstor.org/</a> [अकादमिक शोध पत्रों का संग्रह।]
+        </div>
+
+        <div class="reference-item">
+            <span class="reference-number">50</span>
+            <strong>Internet Sacred Text Archive:</strong> <a href="https://www.sacred-texts.com/" target="_blank">https://www.sacred-texts.com/</a> [प्राचीन ग्रंथों का ऑनलाइन संग्रह।]
+        </div>
+
+        <div class="stats-grid" style="margin-top: 40px;">
+            <div class="stat-box" style="background: linear-gradient(135deg, #1565c0, #0d47a1);">
+                <span class="stat-icon">📚</span>
+                <span class="stat-number">50+</span>
+                <span class="stat-label">कुल संदर्भ</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #1976d2, #1565c0);">
+                <span class="stat-icon">📖</span>
+                <span class="stat-number">10</span>
+                <span class="stat-label">प्राथमिक स्रोत</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #1e88e5, #1976d2);">
+                <span class="stat-icon">📑</span>
+                <span class="stat-number">30+</span>
+                <span class="stat-label">द्वितीयक स्रोत</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #2196f3, #1e88e5);">
+                <span class="stat-icon">🌐</span>
+                <span class="stat-number">5</span>
+                <span class="stat-label">ऑनलाइन संसाधन</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CHAPTER IV: CONCLUSION ==================== -->
+    <div class="page-break"></div>
+
+    <section id="chapter4" class="chapter-section">
+        <h1 class="chapter-title">
+            <span class="chapter-number">अध्याय IV</span>
+            निष्कर्ष
+        </h1>
+        <h3 style="text-align: center; color: var(--dark-maroon); font-size: 15pt; margin-bottom: 35px;">
+            🎯 Conclusion - Final Analysis & Modern Relevance
+        </h3>
+
+        <!-- Introduction -->
+        <p class="drop-cap">हस्तिनापुर का समग्र अध्ययन हमें एक ऐसी यात्रा पर ले जाता है जहाँ हम एक प्राचीन सभ्यता के उत्थान की पराकाष्ठा और उसके पतन की त्रासदी, दोनों के साक्षी बनते हैं। यह शोध-प्रबंध इस ऐतिहासिक स्थल के सकारात्मक एवं नकारात्मक दोनों पक्षों का निष्पक्ष और संतुलित विश्लेषण प्रस्तुत करता है। इस अंतिम अध्याय में हम शोध के प्रमुख निष्कर्षों का सारांश, आधुनिक विश्व के लिए प्रासंगिकता, और भविष्य के शोध हेतु सुझाव प्रस्तुत करेंगे।</p>
+
+        <!-- Research Summary -->
+        <h3 class="section-head">४.१ शोध का सारांश</h3>
+
+        <p>प्रस्तुत शोध-प्रबंध में हस्तिनापुर का चार प्रमुख आयामों से अध्ययन किया गया:</p>
+
+        <div class="comparison-grid">
+            <div class="comparison-positive">
+                <div class="comparison-title">✅ सकारात्मक पक्ष</div>
+                <ul class="academic-list">
+                    <li>साहित्य-पुरातत्व समन्वय</li>
+                    <li>लौह क्रांति का केंद्र</li>
+                    <li>राज्य-निर्माण प्रक्रिया</li>
+                    <li>धार्मिक बहुलता</li>
+                    <li>दार्शनिक विरासत</li>
+                    <li>व्यापार और शिक्षा</li>
+                </ul>
+            </div>
+            <div class="comparison-negative">
+                <div class="comparison-title">❌ नकारात्मक पक्ष</div>
+                <ul class="academic-list">
+                    <li>साहित्यिक अतिशयोक्ति</li>
+                    <li>पर्यावरणीय भेद्यता</li>
+                    <li>लिपि का अभाव</li>
+                    <li>नैतिक पतन</li>
+                    <li>युद्ध का विनाश</li>
+                    <li>सामाजिक भेदभाव</li>
+                </ul>
+            </div>
+        </div>
+
+        <p>इस शोध का मुख्य निष्कर्ष यह है कि <span class="gold-highlight">हस्तिनापुर भारतीय उपमहाद्वीप में 'राज्य-निर्माण' की पहली गंभीर और सफल कोशिश थी</span>, किंतु यह कोशिश मानवीय अहंकार, पर्यावरणीय अज्ञानता, और संस्थागत विफलताओं की भेंट चढ़ गई।</p>
+
+        <!-- Major Findings -->
+        <h3 class="section-head">४.२ प्रमुख निष्कर्ष (Major Findings)</h3>
+
+        <div class="numbered-list">
+            <li>
+                <strong>साहित्य एवं पुरातत्व का समन्वय:</strong> हस्तिनापुर एक ऐसा दुर्लभ स्थल है जहाँ साहित्यिक वर्णन (पुराणों में बाढ़ का उल्लेख) और पुरातात्विक साक्ष्य (गाद की परत) एक-दूसरे की पुष्टि करते हैं। यह भारतीय इतिहास-लेखन की विश्वसनीयता को स्थापित करता है।
+            </li>
+            <li>
+                <strong>लौह क्रांति का महत्व:</strong> हस्तिनापुर भारत में लौह प्रौद्योगिकी के प्रारंभिक केंद्रों में से एक था। लोहे ने कृषि, सैन्य शक्ति, और आर्थिक विकास को क्रांतिकारी दिशा दी।
+            </li>
+            <li>
+                <strong>राज्य-निर्माण की प्रयोगशाला:</strong> कबीलाई व्यवस्था से क्षेत्रीय राज्य की ओर संक्रमण यहाँ स्पष्ट रूप से दिखता है। राजधानी, प्रशासन, सेना, कर-व्यवस्था—ये सभी संस्थाएँ यहाँ विकसित हुईं।
+            </li>
+            <li>
+                <strong>धार्मिक सहिष्णुता:</strong> सनातन एवं जैन परंपराओं का सह-अस्तित्व यहाँ की सांस्कृतिक समृद्धि और सहिष्णुता को दर्शाता है।
+            </li>
+            <li>
+                <strong>साहित्यिक अतिशयोक्ति का प्रश्न:</strong> महाभारत की भव्य छवि (स्वर्ण महल) और पुरातात्विक यथार्थ (कच्चे मकान) में बड़ा अंतर है। यह हमें सिखाता है कि प्राचीन साहित्य को आलोचनात्मक दृष्टि से पढ़ना आवश्यक है।
+            </li>
+            <li>
+                <strong>पर्यावरण की उपेक्षा:</strong> गंगा की बाढ़ ने नगर को नष्ट कर दिया—यह जल-प्रबंधन की विफलता और प्रकृति की उपेक्षा का परिणाम था।
+            </li>
+            <li>
+                <strong>संस्थागत नैतिकता का पतन:</strong> द्यूत-क्रीड़ा, द्रौपदी का अपमान, षड्यंत्र—ये सब संस्थागत नैतिकता के ह्रास के प्रमाण हैं।
+            </li>
+            <li>
+                <strong>युद्ध की निरर्थकता:</strong> कुरुक्षेत्र युद्ध ने सभ्यता को विनाश के कगार पर पहुँचा दिया। विजेता भी हारे—पांडवों ने राज्य जीता किंतु सब कुछ खो दिया।
+            </li>
+        </div>
+
+        <!-- Image 9 -->
+        <div class="image-container">
+            <div class="image-placeholder">
+                <span class="image-placeholder-icon">🏛️</span>
+                <span class="image-placeholder-text">वर्तमान हस्तिनापुर - जैन तीर्थ<br>Present Day Hastinapura</span>
+            </div>
+            <p class="image-caption"><strong>चित्र 4.1:</strong> वर्तमान हस्तिनापुर—जहाँ प्राचीन राजधानी के स्थान पर आज जैन मंदिर और तीर्थ स्थल हैं।</p>
+            <p class="image-source">स्रोत: Contemporary Photographs</p>
+        </div>
+
+        <!-- Modern Relevance -->
+        <div class="page-break"></div>
+        
+        <h3 class="section-head">४.३ आधुनिक विश्व के लिए प्रासंगिकता</h3>
+
+        <p>आज की 21वीं सदी में, जब हम जलवायु परिवर्तन, वैश्विक संघर्षों, और नैतिक संकटों के दौर से गुजर रहे हैं, हस्तिनापुर की कहानी अत्यंत प्रासंगिक है:</p>
+
+        <div class="key-points-box">
+            <div class="key-points-title">🌍 समकालीन प्रासंगिकता</div>
+            <ul class="academic-list">
+                <li>
+                    <span class="highlight">पर्यावरणीय चेतावनी:</span> हस्तिनापुर का बाढ़ में बह जाना आज के डूबते शहरों (जकार्ता, मुंबई, ढाका, न्यूयॉर्क) के लिए एक चेतावनी है। जलवायु परिवर्तन के कारण समुद्र का स्तर बढ़ रहा है, बाढ़ें अधिक तीव्र हो रही हैं। यदि हम जल-प्रबंधन और पर्यावरण संरक्षण की उपेक्षा करते रहे, तो आधुनिक नगर भी हस्तिनापुर की तरह नष्ट हो सकते हैं।
+                </li>
+                <li>
+                    <span class="highlight">युद्ध की निरर्थकता:</span> कुरुक्षेत्र का विनाश आज के परमाणु युग के लिए एक सबक है। आधुनिक युद्ध में विनाश और भी भयावह होगा। कूटनीति, संवाद, और शांतिपूर्ण समाधान की आवश्यकता है।
+                </li>
+                <li>
+                    <span class="highlight">संस्थागत नैतिकता:</span> जब संस्थाएँ भ्रष्ट हो जाती हैं, जब न्याय-व्यवस्था चुप रहती है, तो समाज का पतन होता है। आज की राजनीतिक, न्यायिक, और प्रशासनिक संस्थाओं को इससे सीख लेनी चाहिए।
+                </li>
+                <li>
+                    <span class="highlight">धार्मिक सहिष्णुता:</span> हस्तिनापुर में विभिन्न धर्मों का सह-अस्तित्व था। आज के बहुसांस्कृतिक विश्व में यह आदर्श अनुकरणीय है।
+                </li>
+                <li>
+                    <span class="highlight">सामाजिक न्याय:</span> एकलव्य, कर्ण, द्रौपदी के साथ हुए अन्याय हमें सामाजिक भेदभाव के विरुद्ध सचेत करते हैं।
+                </li>
+            </ul>
+        </div>
+
+        <div class="shloka-box">
+            <span class="shloka-text">"इतिहासः प्रदीपः स्यात्, भविष्यस्य निरूपणे।"</span>
+            <span class="shloka-meaning">(इतिहास वह दीपक है जो भविष्य का मार्ग प्रशस्त करता है।)</span>
+        </div>
+
+        <!-- Future Research Suggestions -->
+        <h3 class="section-head">४.४ भविष्य के शोध हेतु सुझाव</h3>
+
+        <div class="evidence-box">
+            <div class="evidence-title">🔬 भविष्य के शोध की दिशाएँ</div>
+            <ul class="academic-list">
+                <li><strong>विस्तृत उत्खनन:</strong> हस्तिनापुर के अनुत्खनित भागों का व्यापक पुरातात्विक सर्वेक्षण एवं उत्खनन किया जाए।</li>
+                <li><strong>आधुनिक तकनीक:</strong> Ground Penetrating Radar (GPR), LiDAR, और DNA Analysis जैसी आधुनिक तकनीकों का प्रयोग किया जाए।</li>
+                <li><strong>तुलनात्मक अध्ययन:</strong> PGW संस्कृति के अन्य स्थलों (अहिच्छत्र, मथुरा, रोपड़) के साथ तुलनात्मक अध्ययन किया जाए।</li>
+                <li><strong>पाठ-आलोचना:</strong> महाभारत के विभिन्न संस्करणों का पाठ-आलोचनात्मक अध्ययन जारी रहे।</li>
+                <li><strong>जलवायु अध्ययन:</strong> जलवायु परिवर्तन के प्राचीन साक्ष्यों (Paleoclimate Studies) का अध्ययन किया जाए।</li>
+                <li><strong>अंतर्विषयक दृष्टिकोण:</strong> इतिहास, पुरातत्व, भूविज्ञान, और साहित्य का समन्वित अध्ययन किया जाए।</li>
+            </ul>
+        </div>
+
+        <!-- Final Thoughts -->
+        <h3 class="section-head">४.५ अंतिम विचार</h3>
+
+        <p>हस्तिनापुर का यथार्थ मिट्टी के उन बर्तनों (PGW) और लोहे के टुकड़ों में छिपा है, जो हमें बताते हैं कि प्राचीन भारतीय कितने परिश्रमी और आविष्कारशील थे। भले ही वहाँ स्वर्ण महल नहीं थे, लेकिन वहाँ एक ऐसी संस्कृति थी जिसने भारत के दार्शनिक आधार—जैसे भगवद्गीता का निष्काम कर्म, शांति पर्व का राजधर्म—को जन्म दिया।</p>
+
+        <p>हस्तिनापुर का पतन हमें सिखाता है कि कोई भी साम्राज्य, चाहे वह कितना भी शक्तिशाली क्यों न हो, यदि वह अपनी मिट्टी और अपनी नैतिकता का सम्मान नहीं करता, तो प्रकृति और काल उसे धूल में मिला देते हैं। किंतु साथ ही, हस्तिनापुर की उपलब्धियाँ हमें प्रेरित करती हैं कि मानव सभ्यता में प्रगति और विकास की अपार संभावनाएँ हैं।</p>
+
+        <div class="highlight-bar" style="background: linear-gradient(135deg, var(--primary-gold), #8d6e3f);">
+            हस्तिनापुर का इतिहास केवल अतीत की कथा नहीं है, बल्कि यह भविष्य के लिए एक विस्तृत चेतावनी-पत्र (Warning Letter) और प्रेरणा-पत्र (Inspiration Letter) दोनों है।
+        </div>
+
+        <div class="shloka-box">
+            <span class="shloka-text">"सर्वे भवन्तु सुखिनः, सर्वे सन्तु निरामयाः।<br>सर्वे भद्राणि पश्यन्तु, मा कश्चिद् दुःखभाग्भवेत्।।"</span>
+            <span class="shloka-meaning">(सभी सुखी हों, सभी निरोगी हों, सभी कल्याण देखें, कोई दुखी न हो।)</span>
+            <span class="shloka-source">— हस्तिनापुर की विरासत से प्राप्त संदेश</span>
+        </div>
+
+        <!-- Final Statistics -->
+        <div class="section-divider">✦ ✧ ✦ ✧ ✦</div>
+
+        <div class="stats-grid">
+            <div class="stat-box" style="background: linear-gradient(135deg, var(--positive-green), #1b5e20);">
+                <span class="stat-icon">✅</span>
+                <span class="stat-number">10+</span>
+                <span class="stat-label">सकारात्मक पक्ष</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, var(--negative-red), #b71c1c);">
+                <span class="stat-icon">❌</span>
+                <span class="stat-number">8+</span>
+                <span class="stat-label">नकारात्मक पक्ष</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #1565c0, #0d47a1);">
+                <span class="stat-icon">📚</span>
+                <span class="stat-number">50+</span>
+                <span class="stat-label">संदर्भ ग्रंथ</span>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, var(--primary-gold), #8d6e3f);">
+                <span class="stat-icon">📝</span>
+                <span class="stat-number">10,000+</span>
+                <span class="stat-label">शब्द संख्या</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL PAGE ==================== -->
+    <div class="page-break"></div>
+
+    <div class="final-decoration">
+        <div class="final-ornament">✦ ✧ ✦ ✧ ✦</div>
+        
+        <p class="final-title">॥ इति शोध-प्रबंधः सम्पूर्णम् ॥</p>
+        
+        <p style="font-size: 15pt; color: #666; font-style: italic; margin: 25px 0; text-indent: 0;">
+            (Thus concludes the Research Thesis)
+        </p>
+        
+        <div class="final-ornament">✦ ✧ ✦ ✧ ✦</div>
+
+        <div style="margin-top: 50px; padding: 30px; border: 3px double var(--primary-gold); display: inline-block; border-radius: 10px; background: linear-gradient(135deg, #fdfaf6, #fff);">
+            <p style="text-indent: 0; margin: 0 0 15px 0; font-size: 13pt; color: #555;">
+                <strong>शोध-प्रबंध विवरण:</strong>
+            </p>
+            <table style="margin: 0 auto; text-align: left; font-size: 12pt;">
+                <tr>
+                    <td style="padding: 5px 15px; border: none;"><strong>विषय:</strong></td>
+                    <td style="padding: 5px 15px; border: none;">हस्तिनापुर - एक विश्लेषणात्मक अध्ययन</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px 15px; border: none;"><strong>अध्याय:</strong></td>
+                    <td style="padding: 5px 15px; border: none;">4 (सकारात्मक पक्ष, नकारात्मक पक्ष, संदर्भ, निष्कर्ष)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px 15px; border: none;"><strong>शब्द संख्या:</strong></td>
+                    <td style="padding: 5px 15px; border: none;"><strong style="color: var(--dark-maroon);">10,000+ शब्द</strong></td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px 15px; border: none;"><strong>संदर्भ:</strong></td>
+                    <td style="padding: 5px 15px; border: none;">50+ ग्रंथ एवं स्रोत</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px 15px; border: none;"><strong>चित्र:</strong></td>
+                    <td style="padding: 5px 15px; border: none;">9+ ऐतिहासिक चित्र/मानचित्र</td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="margin-top: 50px;">
+            <a href="#toc" class="nav-button">
+                📚 विषय-सूची पर वापस जाएं
+            </a>
+            <a href="#cover" class="nav-button">
+                🏠 प्रथम पृष्ठ पर जाएं
+            </a>
+        </div>
+
+        <div style="margin-top: 60px; padding-top: 30px; border-top: 2px solid #eee;">
+            <p style="font-size: 11pt; color: #888; text-indent: 0;">
+                © 2024-2025 | शैक्षणिक उपयोग हेतु<br>
+                प्राचीन भारतीय इतिहास विभाग
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<!-- JavaScript -->
+<script>
+    // Back to Top Button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Smooth scroll for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Print notification
+    window.addEventListener('beforeprint', () => {
+        console.log('Printing document...');
+    });
+</script>
+
+</body>
+</html>
